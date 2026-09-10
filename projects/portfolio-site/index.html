@@ -1,0 +1,501 @@
+<title>MK Web工房</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap">
+<style>
+  :root{
+    --paper:#eef1ec;
+    --paper-raised:#e4e8e0;
+    --ink:#1f2d3d;
+    --ink-soft:#51606a;
+    --indigo:#2c4a63;
+    --indigo-deep:#17293a;
+    --vermillion:#c1442e;
+    --gold:#8f7431;
+    --rule: rgba(31,45,61,0.18);
+    --shadow: rgba(23,41,58,0.14);
+    --card-bg:#f6f7f2;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#14181b;
+      --paper-raised:#1b2023;
+      --ink:#ece7db;
+      --ink-soft:#b3ab99;
+      --indigo:#8fb3d1;
+      --indigo-deep:#c3dced;
+      --vermillion:#e2795f;
+      --gold:#cdab72;
+      --rule: rgba(236,231,219,0.2);
+      --shadow: rgba(0,0,0,0.45);
+      --card-bg:#1b2023;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#14181b;
+    --paper-raised:#1b2023;
+    --ink:#ece7db;
+    --ink-soft:#b3ab99;
+    --indigo:#8fb3d1;
+    --indigo-deep:#c3dced;
+    --vermillion:#e2795f;
+    --gold:#cdab72;
+    --rule: rgba(236,231,219,0.2);
+    --shadow: rgba(0,0,0,0.45);
+    --card-bg:#1b2023;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+    font-weight:400;
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  .wrap{max-width:1120px; margin-inline:auto; padding-inline:clamp(18px,5vw,48px);}
+  h1,h2,h3{
+    font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+    font-weight:700;
+    text-wrap:balance;
+    margin:0;
+    color:var(--ink);
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:.5em;
+    font-size:.78rem;
+    letter-spacing:.28em;
+    color:var(--vermillion);
+    font-weight:500;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--vermillion);}
+  a{color:inherit;}
+  .price{font-variant-numeric:tabular-nums;}
+
+  /* ---------- header ---------- */
+  .site-header{
+    position:sticky; top:0; z-index:20;
+    background:color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .header-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-block:14px;
+    gap:16px;
+  }
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+  .brand-mark{
+    width:40px; height:40px; border-radius:50%;
+    border:1.5px solid var(--vermillion);
+    display:flex; align-items:center; justify-content:center;
+    font-family:"Shippori Mincho",serif; font-weight:800; font-size:.95rem;
+    color:var(--vermillion);
+    flex:none;
+  }
+  .brand-name{
+    font-family:"Shippori Mincho",serif; font-weight:700; font-size:1.05rem;
+    letter-spacing:.04em;
+  }
+  .brand-name small{display:block; font-family:"Zen Kaku Gothic New",sans-serif; font-weight:400; font-size:.68rem; color:var(--ink-soft); letter-spacing:.14em;}
+  nav.primary-nav{display:flex; gap:clamp(12px,2.4vw,28px); flex-wrap:wrap;}
+  nav.primary-nav a{
+    text-decoration:none; font-size:.88rem; color:var(--ink-soft);
+    border-bottom:1px solid transparent; padding-bottom:2px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  nav.primary-nav a:hover, nav.primary-nav a:focus-visible{color:var(--ink); border-color:var(--vermillion);}
+
+  /* ---------- hero ---------- */
+  .hero{padding-block:clamp(48px,8vw,88px) clamp(40px,6vw,64px);}
+  .hero-grid{
+    display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(28px,5vw,64px);
+    align-items:center;
+  }
+  @media (max-width:760px){ .hero-grid{grid-template-columns:1fr;} }
+  .hero h1{
+    font-size:clamp(2rem,4.4vw,3.4rem);
+    line-height:1.35;
+    margin-block:.6em .5em;
+  }
+  .hero h1 em{font-style:normal; color:var(--vermillion);}
+  .hero p.lead{
+    max-width:46ch; color:var(--ink-soft); font-size:1.02rem;
+  }
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:1.8em;}
+  .btn{
+    display:inline-flex; align-items:center; gap:.5em;
+    padding:.85em 1.6em; border-radius:2px;
+    font-size:.92rem; text-decoration:none; font-weight:500;
+    border:1.5px solid transparent; cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn-primary{background:var(--vermillion); color:#fbf6ee;}
+  .btn-primary:hover{transform:translateY(-1px); box-shadow:0 8px 20px var(--shadow);}
+  .btn-ghost{border-color:var(--rule); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink);}
+
+  /* hanging signboard graphic */
+  .signboard-stage{display:flex; justify-content:center; align-items:center; min-height:220px;}
+  .signboard{
+    position:relative;
+    width:min(280px,80vw); padding:2.2em 1.6em;
+    background:var(--indigo);
+    border:2px solid var(--indigo-deep);
+    color:#f3ede0;
+    text-align:center;
+    box-shadow:0 18px 34px var(--shadow);
+    transform:rotate(-2.5deg);
+    animation:swing 7s ease-in-out infinite;
+    transform-origin:top center;
+  }
+  .signboard::before{
+    content:""; position:absolute; top:-28px; left:50%; translate:-50% 0;
+    width:2px; height:28px; background:var(--ink-soft);
+  }
+  .signboard .sb-kanji{
+    font-family:"Shippori Mincho",serif; font-weight:800;
+    font-size:2.6rem; letter-spacing:.12em; display:block;
+  }
+  .signboard .sb-sub{
+    display:block; margin-top:.6em; font-size:.72rem; letter-spacing:.24em; color:#d9c9a3;
+  }
+  @keyframes swing{
+    0%,100%{transform:rotate(-2.5deg);}
+    50%{transform:rotate(1.5deg);}
+  }
+
+  /* ---------- section shell ---------- */
+  .section{padding-block:clamp(46px,7vw,80px); border-top:1px solid var(--rule);}
+  .section-head{display:flex; flex-direction:column; gap:.7em; margin-bottom:clamp(28px,4vw,44px); max-width:60ch;}
+  .section-head h2{font-size:clamp(1.5rem,2.6vw,2.1rem);}
+  .section-head p{color:var(--ink-soft); margin:0;}
+
+  /* ---------- strengths ---------- */
+  .strengths{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(18px,3vw,28px);}
+  @media (max-width:760px){ .strengths{grid-template-columns:1fr;} }
+  .strength{padding-top:1.2em; border-top:2px solid var(--ink);}
+  .strength h3{font-size:1.08rem; margin-bottom:.5em;}
+  .strength p{color:var(--ink-soft); margin:0; font-size:.94rem;}
+
+  /* ---------- menu board (services/pricing) ---------- */
+  .menu-board{border-top:3px double var(--ink); border-bottom:3px double var(--ink);}
+  .plan{
+    display:grid; grid-template-columns:1fr auto; gap:6px 24px;
+    padding-block:1.6em; border-bottom:1px solid var(--rule);
+    align-items:baseline;
+  }
+  .plan:last-child{border-bottom:none;}
+  .plan-name{font-family:"Shippori Mincho",serif; font-weight:700; font-size:1.18rem;}
+  .plan-name .tag{
+    display:inline-block; margin-left:.7em; font-family:"Zen Kaku Gothic New",sans-serif;
+    font-size:.68rem; letter-spacing:.12em; color:var(--gold); border:1px solid var(--gold);
+    padding:.15em .6em; border-radius:2px; vertical-align:middle;
+  }
+  .plan-price{font-size:1.3rem; font-weight:700; white-space:nowrap;}
+  .plan-price sup{font-size:.62em; font-weight:400; color:var(--ink-soft); margin-left:.2em;}
+  .plan-desc{grid-column:1 / -1; color:var(--ink-soft); font-size:.92rem; max-width:64ch; margin:0;}
+  .plan-items{grid-column:1/-1; display:flex; flex-wrap:wrap; gap:.5em .9em; padding:0; margin:.4em 0 0; list-style:none;}
+  .plan-items li{font-size:.82rem; color:var(--ink-soft);}
+  .plan-items li::before{content:"◦ "; color:var(--vermillion);}
+
+  /* ---------- work / samples ---------- */
+  .work-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media (max-width:820px){ .work-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .work-grid{grid-template-columns:1fr;} }
+  .work-card{background:var(--card-bg); border:1px solid var(--rule);}
+  .work-thumb{
+    aspect-ratio:4/3; position:relative; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    color:#f4ece0; font-family:"Shippori Mincho",serif; font-size:1.3rem; font-weight:700;
+  }
+  .work-thumb .sample-flag{
+    position:absolute; top:10px; right:-30px; background:var(--vermillion); color:#fff;
+    font-size:.65rem; letter-spacing:.15em; padding:.35em 2.4em; transform:rotate(38deg);
+  }
+  .thumb-a{background:linear-gradient(155deg,var(--indigo),var(--indigo-deep));}
+  .thumb-b{background:linear-gradient(155deg,#7c6a3c,#4f4426);}
+  .thumb-c{background:linear-gradient(155deg,#5c6b5a,#2f3a2e);}
+  .work-body{padding:1.1em 1.2em 1.4em;}
+  .work-body h3{font-size:1rem; margin-bottom:.35em;}
+  .work-body p{margin:0; font-size:.85rem; color:var(--ink-soft);}
+  .work-note{margin-top:1.6em; font-size:.82rem; color:var(--ink-soft);}
+
+  /* ---------- process ---------- */
+  .process-list{display:grid; gap:0;}
+  .process-item{
+    display:grid; grid-template-columns:64px 1fr; gap:20px;
+    padding-block:1.5em; border-bottom:1px solid var(--rule);
+  }
+  .process-item:last-child{border-bottom:none;}
+  .process-num{
+    font-family:"Shippori Mincho",serif; font-size:1.6rem; font-weight:700;
+    color:var(--vermillion); font-variant-numeric:tabular-nums;
+  }
+  .process-item h3{font-size:1.05rem; margin-bottom:.35em;}
+  .process-item p{margin:0; color:var(--ink-soft); font-size:.92rem; max-width:60ch;}
+
+  /* ---------- contact ---------- */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,56px);}
+  @media (max-width:760px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact-info h2{margin-bottom:.5em;}
+  .contact-info p{color:var(--ink-soft); max-width:40ch;}
+  .contact-email{
+    display:inline-block; margin-top:1em; font-weight:500; color:var(--indigo);
+    border-bottom:1px solid var(--indigo); text-decoration:none;
+  }
+  form.contact-form{display:flex; flex-direction:column; gap:14px;}
+  .field{display:flex; flex-direction:column; gap:6px;}
+  .field label{font-size:.8rem; letter-spacing:.06em; color:var(--ink-soft);}
+  .field input, .field textarea{
+    font:inherit; padding:.75em .85em; background:var(--paper-raised);
+    border:1px solid var(--rule); color:var(--ink); border-radius:2px;
+    resize:vertical;
+  }
+  .field input:focus-visible, .field textarea:focus-visible{outline:2px solid var(--vermillion); outline-offset:1px;}
+  .form-note{font-size:.78rem; color:var(--ink-soft); margin:0;}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--rule); padding-block:26px;}
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:.78rem; color:var(--ink-soft);}
+</style>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">MK</span>
+      <span class="brand-name">MK Web工房<small>個人店・個人事業主のための制作室</small></span>
+    </a>
+    <nav class="primary-nav" aria-label="主要メニュー">
+      <a href="#about">強み</a>
+      <a href="#services">品書き</a>
+      <a href="#work">制作例</a>
+      <a href="#process">流れ</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">個人店・個人事業主の、はじめての一枚看板</span>
+        <h1>お店の顔になる<br><em>ホームページ</em>を、<br>無理のない値段で。</h1>
+        <p class="lead">
+          チラシや口コミだけでは届かないお客様に、あなたのお店の良さを伝える一枚看板をつくります。
+          スマホでの見やすさを最優先に、最短5営業日から制作。丸投げでも、相談しながらでも大丈夫です。
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">無料相談をする</a>
+          <a class="btn btn-ghost" href="#services">料金を見る</a>
+        </div>
+      </div>
+      <div class="signboard-stage" aria-hidden="true">
+        <div class="signboard">
+          <span class="sb-kanji">工房</span>
+          <span class="sb-sub">MK WEB ATELIER</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">強み</span>
+        <h2>大きな制作会社にはできない、距離の近さ</h2>
+        <p>担当が最初から最後まで一人で対応します。伝言ゲームがない分、直しも早いです。</p>
+      </div>
+      <div class="strengths">
+        <div class="strength">
+          <h3>一枚看板だから、丁寧に</h3>
+          <p>同時に抱える案件数を絞っているので、1店舗ごとの相談時間をしっかり取れます。</p>
+        </div>
+        <div class="strength">
+          <h3>スマホ表示を最優先</h3>
+          <p>来店前に検索するお客様の大半はスマホです。まずスマホで気持ちよく読めるかを基準に組み立てます。</p>
+        </div>
+        <div class="strength">
+          <h3>納品して終わりにしない</h3>
+          <p>メニューや営業時間の変更など、公開後の軽微な修正も一定回数は料金内で対応します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">品書き</span>
+        <h2>料金プラン</h2>
+        <p>価格は税別の目安です。ページ数やご要望により前後しますが、着手前に必ずお見積りをお出しします。</p>
+      </div>
+      <div class="menu-board">
+        <div class="plan">
+          <div class="plan-name">ライトプラン<span class="tag">最短5営業日</span></div>
+          <div class="plan-price">¥<span class="price">38,000</span><sup>〜</sup></div>
+          <p class="plan-desc">お店の紹介を1ページにまとめた、いわゆるLPサイト。まずは形にしたい方向け。</p>
+          <ul class="plan-items">
+            <li>1ページ構成</li>
+            <li>スマホ最適化</li>
+            <li>地図・営業時間掲載</li>
+            <li>SNSリンク設置</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <div class="plan-name">スタンダードプラン<span class="tag">人気</span></div>
+          <div class="plan-price">¥<span class="price">98,000</span><sup>〜</sup></div>
+          <p class="plan-desc">メニュー・こだわり・お客様の声などを複数ページに分けて、しっかり伝えたい方向け。</p>
+          <ul class="plan-items">
+            <li>〜5ページ構成</li>
+            <li>お問い合わせフォーム</li>
+            <li>基本のSEO設定</li>
+            <li>写真の簡易補正</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <div class="plan-name">保守サポート</div>
+          <div class="plan-price">¥<span class="price">3,000</span><sup>〜 / 月</sup></div>
+          <p class="plan-desc">公開後、営業時間やメニュー価格の更新などを都度お任せいただけます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">制作例</span>
+        <h2>こんな見え方でつくれます</h2>
+        <p>まだ実際の制作事例がないため、業種別のサンプルデザインを掲載しています（実店舗のサイトではありません）。</p>
+      </div>
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="work-thumb thumb-a"><span class="sample-flag">SAMPLE</span>美容室 案</div>
+          <div class="work-body">
+            <h3>美容室向け・ライトプラン想定</h3>
+            <p>予約導線とスタイル写真を軸にした1ページ構成。</p>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb thumb-b"><span class="sample-flag">SAMPLE</span>飲食店 案</div>
+          <div class="work-body">
+            <h3>飲食店向け・スタンダード想定</h3>
+            <p>メニュー・アクセス・お知らせを分けた複数ページ構成。</p>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb thumb-c"><span class="sample-flag">SAMPLE</span>工務店 案</div>
+          <div class="work-body">
+            <h3>個人事業主向け・スタンダード想定</h3>
+            <p>施工実績と問い合わせフォームを重視した構成。</p>
+          </div>
+        </div>
+      </div>
+      <p class="work-note">※ 実際にご依頼いただいた案件は、許可をいただき次第ここに差し替えていきます。</p>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">流れ</span>
+        <h2>ご依頼から公開まで</h2>
+        <p>目安として、ご相談から公開まで2〜3週間ほどです。</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <div class="process-num">01</div>
+          <div>
+            <h3>ヒアリング</h3>
+            <p>お店の強み、お客様像、ご予算を30分ほどお伺いします。オンラインでも対面でも可能です。</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">02</div>
+          <div>
+            <h3>デザイン提案</h3>
+            <p>構成案を1つにまとめてご提案します。この段階でしっかり方向性を固めてから制作に入ります。</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">03</div>
+          <div>
+            <h3>制作</h3>
+            <p>原則1〜2週間で構築します。途中経過はリンクでいつでも確認いただけます。</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">04</div>
+          <div>
+            <h3>公開</h3>
+            <p>表示確認を行ったうえで公開します。公開直後の不具合対応も含みます。</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">05</div>
+          <div>
+            <h3>アフターサポート</h3>
+            <p>文言修正や写真差し替えなど、プランに応じた範囲で継続的にお手伝いします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <span class="eyebrow">お問い合わせ</span>
+        <h2>まずは無料相談から</h2>
+        <p>今のお店の状況やお悩みをお聞かせください。ホームページを作るかどうか迷っている段階でも構いません。</p>
+        <a class="contact-email" href="mailto:contact@example.com">contact@example.com</a>
+      </div>
+      <form class="contact-form" id="contact-form">
+        <div class="field">
+          <label for="cf-name">お名前</label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="cf-shop">お店・屋号</label>
+          <input id="cf-shop" name="shop" type="text" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="cf-message">ご相談内容</label>
+          <textarea id="cf-message" name="message" rows="4" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">メールで送る</button>
+        <p class="form-note">送信ボタンを押すとメールアプリが開きます。開かない場合は上記アドレスへ直接お送りください。</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>MK Web工房</span>
+    <span>※ このサイトは制作テンプレート（ポートフォリオ用ひな形）です</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('cf-name').value;
+    var shop = document.getElementById('cf-shop').value;
+    var message = document.getElementById('cf-message').value;
+    var subject = encodeURIComponent('ホームページ制作のご相談（' + (shop || name) + '）');
+    var body = encodeURIComponent('お名前: ' + name + '\nお店・屋号: ' + shop + '\n\n' + message);
+    window.location.href = 'mailto:contact@example.com?subject=' + subject + '&body=' + body;
+  });
+</script>
