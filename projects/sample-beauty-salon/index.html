@@ -1,0 +1,458 @@
+<title>美容室 凪 -nagi-</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700;900&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#eef2ef;
+    --bg-raised:#e3eae5;
+    --surface:#f8faf8;
+    --ink:#20302c;
+    --ink-soft:#57685f;
+    --teal:#3f7570;
+    --teal-deep:#24504c;
+    --teal-tint:#dfeae6;
+    --plum:#9c6b74;
+    --plum-tint:#f1e2e2;
+    --rule:rgba(32,45,42,0.16);
+    --shadow:rgba(32,45,42,0.14);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#121817;
+      --bg-raised:#182220;
+      --surface:#1a2422;
+      --ink:#e9efec;
+      --ink-soft:#a9bab4;
+      --teal:#7fb9b0;
+      --teal-deep:#addbd3;
+      --teal-tint:#1e2f2c;
+      --plum:#d19aa3;
+      --plum-tint:#2d2124;
+      --rule:rgba(233,239,236,0.18);
+      --shadow:rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#121817;
+    --bg-raised:#182220;
+    --surface:#1a2422;
+    --ink:#e9efec;
+    --ink-soft:#a9bab4;
+    --teal:#7fb9b0;
+    --teal-deep:#addbd3;
+    --teal-tint:#1e2f2c;
+    --plum:#d19aa3;
+    --plum-tint:#2d2124;
+    --rule:rgba(233,239,236,0.18);
+    --shadow:rgba(0,0,0,0.5);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Zen Maru Gothic","Hiragino Sans","Yu Gothic",sans-serif;
+    font-weight:400;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+    padding-inline:16px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  .wrap{max-width:960px; margin:0 auto;}
+  img{max-width:100%;}
+  [hidden]{display:none !important;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:"Zen Old Mincho",serif; text-wrap:balance; margin:0;}
+  ::selection{background:var(--teal); color:var(--surface);}
+
+  /* ---- top bar ---- */
+  .topbar{
+    position:sticky; top:env(safe-area-inset-top,0px);
+    z-index:20; background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .topbar-inner{
+    max-width:960px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding-block:14px; gap:12px;
+  }
+  .brand{font-family:"Zen Old Mincho",serif; font-weight:700; font-size:1.05rem; letter-spacing:0.04em; white-space:nowrap;}
+  .brand small{display:block; font-family:"Zen Maru Gothic",sans-serif; font-weight:400; font-size:0.62rem; color:var(--ink-soft); letter-spacing:0.16em;}
+  .topnav{display:flex; gap:22px; font-size:0.86rem;}
+  .topnav a{text-decoration:none; color:var(--ink-soft); transition:color .15s;}
+  .topnav a:hover, .topnav a:focus-visible{color:var(--teal-deep);}
+  .topcta{
+    display:inline-flex; align-items:center; gap:6px;
+    background:var(--teal); color:var(--surface);
+    padding:8px 16px; border-radius:999px;
+    font-size:0.82rem; font-weight:700; text-decoration:none;
+    white-space:nowrap;
+  }
+  .topcta:hover, .topcta:focus-visible{background:var(--teal-deep);}
+  @media (max-width:640px){ .topnav{display:none;} }
+
+  /* ---- hero ---- */
+  .hero{position:relative; overflow:hidden; padding-block:64px 56px; border-bottom:1px solid var(--rule);}
+  .hero-kanji{
+    position:absolute; right:-0.12em; top:-0.28em;
+    font-family:"Zen Old Mincho",serif; font-weight:700;
+    font-size:min(52vw,420px); line-height:1; color:var(--teal);
+    opacity:0.09; pointer-events:none; user-select:none;
+  }
+  .ripple{
+    position:absolute; inset:auto -20% -40% -10%; height:60%;
+    background:radial-gradient(ellipse 60% 100% at 30% 100%, color-mix(in srgb, var(--teal) 22%, transparent), transparent 70%),
+               radial-gradient(ellipse 50% 90% at 75% 100%, color-mix(in srgb, var(--plum) 16%, transparent), transparent 70%);
+    filter:blur(2px);
+    animation:sway 14s ease-in-out infinite alternate;
+    pointer-events:none;
+  }
+  @keyframes sway{ from{ transform:translateX(-2%) scale(1); } to{ transform:translateX(2%) scale(1.03); } }
+  .badge{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:0.7rem; letter-spacing:0.14em; font-weight:700;
+    color:var(--teal-deep); background:var(--teal-tint);
+    border:1px solid var(--rule); padding:5px 12px; border-radius:999px;
+    margin-bottom:22px;
+  }
+  .hero-copy{position:relative; max-width:34rem;}
+  .eyebrow{display:block; font-size:0.82rem; letter-spacing:0.18em; color:var(--teal-deep); font-weight:700; margin-bottom:14px;}
+  .hero h1{font-size:clamp(2.1rem,5.2vw,3.1rem); font-weight:700; letter-spacing:0.02em; margin-bottom:18px;}
+  .hero p.lead{font-size:1.02rem; color:var(--ink-soft); max-width:30rem; margin-bottom:30px;}
+  .hero-ctas{display:flex; flex-wrap:wrap; gap:14px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px; border-radius:999px; text-decoration:none;
+    font-weight:700; font-size:0.94rem; border:1px solid transparent;
+    transition:transform .15s, background .15s, color .15s;
+  }
+  .btn:hover, .btn:focus-visible{transform:translateY(-1px);}
+  .btn-primary{background:var(--teal); color:var(--surface);}
+  .btn-primary:hover, .btn-primary:focus-visible{background:var(--teal-deep);}
+  .btn-ghost{background:transparent; border-color:var(--rule); color:var(--ink);}
+  .btn-ghost:hover, .btn-ghost:focus-visible{border-color:var(--teal); color:var(--teal-deep);}
+  .hero-meta{margin-top:36px; display:flex; gap:26px; flex-wrap:wrap; font-size:0.84rem; color:var(--ink-soft);}
+  .hero-meta strong{color:var(--ink); font-weight:700;}
+
+  /* ---- section shell ---- */
+  .section{padding-block:60px; border-bottom:1px solid var(--rule);}
+  .section:last-of-type{border-bottom:none;}
+  .section-head{max-width:34rem; margin-bottom:38px;}
+  .section-head .eyebrow{margin-bottom:10px;}
+  .section-head h2{font-size:clamp(1.5rem,3.4vw,2rem); font-weight:600; margin-bottom:10px;}
+  .section-head p{color:var(--ink-soft); max-width:32rem;}
+
+  /* ---- concept ---- */
+  .concept-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  @media (max-width:760px){ .concept-grid{grid-template-columns:1fr;} }
+  .concept-card{
+    background:var(--surface); border:1px solid var(--rule); border-radius:18px;
+    padding:26px 24px; box-shadow:0 10px 26px -20px var(--shadow);
+  }
+  .concept-mark{
+    width:38px; height:38px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--teal-tint); color:var(--teal-deep); margin-bottom:16px;
+  }
+  .concept-card h3{font-size:1.06rem; font-weight:600; margin-bottom:10px; line-height:1.6;}
+  .concept-card p{font-size:0.9rem; color:var(--ink-soft); margin:0;}
+
+  /* ---- menu ---- */
+  .menu-table{width:100%; border-collapse:collapse; font-size:0.94rem;}
+  .menu-table th{text-align:left; font-family:"Zen Old Mincho",serif; font-weight:600; font-size:0.78rem; letter-spacing:0.1em; color:var(--ink-soft); padding-bottom:12px; border-bottom:1px solid var(--rule);}
+  .menu-table td{padding:16px 0; border-bottom:1px solid var(--rule); vertical-align:top;}
+  .menu-table td:last-child{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; padding-left:16px; font-weight:700; color:var(--teal-deep);}
+  .menu-table tr:last-child td{border-bottom:none;}
+  .menu-note{margin-top:22px; font-size:0.82rem; color:var(--ink-soft);}
+  .menu-note{display:flex; gap:8px; align-items:flex-start;}
+
+  /* ---- style gallery ---- */
+  .style-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media (max-width:760px){ .style-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:460px){ .style-grid{grid-template-columns:1fr;} }
+  .style-card{
+    position:relative; border-radius:16px; overflow:hidden;
+    aspect-ratio:4/5; border:1px solid var(--rule);
+    display:flex; align-items:flex-end;
+  }
+  .sc-1{background:linear-gradient(155deg,#cfe3de,#8fb6ac 60%,#5c8f86);}
+  .sc-2{background:linear-gradient(155deg,#e7d9d4,#c9a79c 60%,#9c6b74);}
+  .sc-3{background:linear-gradient(155deg,#22322f,#3f5c56 60%,#7fb9b0);}
+  .sc-4{background:linear-gradient(155deg,#f1e2e2,#dcb9b9 60%,#9c6b74);}
+  .sc-5{background:linear-gradient(155deg,#dbe4de,#aebfb6 60%,#5c6f66);}
+  .sc-6{background:linear-gradient(155deg,#e9e1d0,#c9b98f 60%,#8f7a4d);}
+  .style-tag{
+    position:absolute; top:10px; left:10px;
+    font-size:0.62rem; letter-spacing:0.1em; font-weight:700;
+    color:#fff; background:rgba(20,28,26,0.42);
+    padding:4px 9px; border-radius:999px;
+  }
+  .style-label{
+    width:100%; padding:14px 14px 12px; color:#fff;
+    background:linear-gradient(to top, rgba(15,20,19,0.55), transparent);
+    font-size:0.86rem; font-weight:700;
+  }
+  .style-note{margin-top:18px; font-size:0.82rem; color:var(--ink-soft);}
+
+  /* ---- access ---- */
+  .access-layout{display:grid; grid-template-columns:1.1fr 1fr; gap:32px;}
+  @media (max-width:760px){ .access-layout{grid-template-columns:1fr;} }
+  .info-list{display:flex; flex-direction:column; gap:18px; font-size:0.92rem;}
+  .info-row{display:grid; grid-template-columns:6em 1fr; gap:14px; padding-bottom:16px; border-bottom:1px solid var(--rule);}
+  .info-row:last-child{border-bottom:none; padding-bottom:0;}
+  .info-row dt{font-family:"Zen Old Mincho",serif; font-weight:600; color:var(--teal-deep); font-size:0.84rem;}
+  .info-row dd{margin:0; color:var(--ink);}
+  .info-row dd small{display:block; color:var(--ink-soft); font-size:0.82rem; margin-top:2px;}
+  .map-card{
+    border:1px solid var(--rule); border-radius:18px; background:var(--surface);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:28px; gap:10px; min-height:220px;
+  }
+  .map-pin{width:34px; height:34px; color:var(--teal);}
+  .map-card strong{font-family:"Zen Old Mincho",serif; font-size:1.02rem;}
+  .map-card span{color:var(--ink-soft); font-size:0.84rem;}
+
+  /* ---- reserve form ---- */
+  .reserve-panel{
+    background:var(--surface); border:1px solid var(--rule); border-radius:20px;
+    padding:34px; display:grid; grid-template-columns:1fr 1fr; gap:20px;
+    box-shadow:0 16px 40px -28px var(--shadow);
+  }
+  @media (max-width:640px){ .reserve-panel{grid-template-columns:1fr; padding:26px;} }
+  .field{display:flex; flex-direction:column; gap:6px;}
+  .field.full{grid-column:1/-1;}
+  .field label{font-size:0.8rem; font-weight:700; color:var(--ink-soft);}
+  .field input, .field select, .field textarea{
+    font:inherit; padding:11px 13px; border-radius:10px;
+    border:1px solid var(--rule); background:var(--bg); color:var(--ink);
+  }
+  .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible{
+    outline:2px solid var(--teal); outline-offset:1px;
+  }
+  .field textarea{resize:vertical; min-height:90px;}
+  .reserve-submit{grid-column:1/-1; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+  .reserve-note{font-size:0.78rem; color:var(--ink-soft);}
+
+  footer{padding-block:34px; border-top:1px solid var(--rule);}
+  .footer-inner{display:flex; flex-direction:column; gap:6px; font-size:0.78rem; color:var(--ink-soft);}
+  .footer-inner strong{color:var(--ink); font-family:"Zen Old Mincho",serif; font-size:0.92rem;}
+</style>
+
+<header class="topbar">
+  <div class="topbar-inner wrap">
+    <span class="brand">美容室 凪<small>NAGI HAIR &mdash; 栃木市 蔵の街</small></span>
+    <nav class="topnav" aria-label="ページ内メニュー">
+      <a href="#concept">こだわり</a>
+      <a href="#menu">メニュー</a>
+      <a href="#style">スタイル</a>
+      <a href="#access">アクセス</a>
+    </nav>
+    <a class="topcta" href="#reserve">ご予約・お問い合わせ</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <span class="hero-kanji" aria-hidden="true">凪</span>
+    <div class="ripple" aria-hidden="true"></div>
+    <div class="hero-copy">
+      <span class="badge">SAMPLE DESIGN &mdash; 業種別サンプル（美容室）</span>
+      <span class="eyebrow">栃木市 嘉右衛門町 &mdash; 完全予約制の美容室</span>
+      <h1>忙しい毎日に、<br>凪(な)ぐ時間を。</h1>
+      <p class="lead">蔵の街の古い町家を改装した、一日6席限定の美容室です。丁寧なカウンセリングと、急かさない時間の中で、あなたに似合う髪へ。</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="tel:0282000000">電話で予約する</a>
+        <a class="btn btn-ghost" href="#reserve">フォームで相談する</a>
+      </div>
+      <div class="hero-meta">
+        <span><strong>営業時間</strong> 10:00&ndash;19:00（土日 9:00&ndash;18:00）</span>
+        <span><strong>定休日</strong> 火曜・第3月曜</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="concept">
+    <div class="section-head">
+      <span class="eyebrow">CONCEPT</span>
+      <h2>凪が、こだわっていること</h2>
+      <p>技術だけでなく、「その時間そのもの」を丁寧につくることを大切にしています。</p>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="concept-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+        </div>
+        <h3>一人ひとりの「間」をつくる</h3>
+        <p>完全予約制で1日の担当人数を絞り、カウンセリングと施術にゆっくり時間をかけます。</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12c2-4 6-4 8 0s6 4 8 0"/></svg>
+        </div>
+        <h3>蔵の街の四季を、髪に映す</h3>
+        <p>町並みの色や光の移ろいをヒントに、季節ごとのカラー・スタイルをご提案します。</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z"/></svg>
+        </div>
+        <h3>無理のない、通いやすさ</h3>
+        <p>次回のご提案を無理に勧めることはありません。ご自身のペースで通っていただけます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="menu">
+    <div class="section-head">
+      <span class="eyebrow">MENU &amp; PRICE</span>
+      <h2>メニュー・料金</h2>
+      <p>すべて税込表示です。髪の長さ・状態により価格が変動する場合があります。</p>
+    </div>
+    <table class="menu-table">
+      <thead>
+        <tr><th>メニュー</th><th></th></tr>
+      </thead>
+      <tbody>
+        <tr><td>カット（シャンプー・ブロー込）</td><td>&yen;4,400&sim;</td></tr>
+        <tr><td>フルカラー</td><td>&yen;7,700&sim;</td></tr>
+        <tr><td>パーマ</td><td>&yen;9,900&sim;</td></tr>
+        <tr><td>縮毛矯正</td><td>&yen;13,200&sim;</td></tr>
+        <tr><td>トリートメント</td><td>&yen;3,300&sim;</td></tr>
+        <tr><td>学生カット（平日限定）</td><td>&yen;3,300</td></tr>
+      </tbody>
+    </table>
+    <p class="menu-note">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+      当日のご相談内容によって、メニューを組み合わせてご提案する場合があります。
+    </p>
+  </section>
+
+  <section class="section wrap" id="style">
+    <div class="section-head">
+      <span class="eyebrow">STYLE</span>
+      <h2>スタイルの一例</h2>
+      <p>ご要望に合わせてご提案するスタイルの方向性を、色とイメージでご紹介します。</p>
+    </div>
+    <div class="style-grid">
+      <div class="style-card sc-1"><span class="style-tag">SAMPLE</span><span class="style-label">透明感グレージュ</span></div>
+      <div class="style-card sc-2"><span class="style-tag">SAMPLE</span><span class="style-label">くすみピンクベージュ</span></div>
+      <div class="style-card sc-3"><span class="style-tag">SAMPLE</span><span class="style-label">艶感ストレート</span></div>
+      <div class="style-card sc-4"><span class="style-tag">SAMPLE</span><span class="style-label">ナチュラルボブ</span></div>
+      <div class="style-card sc-5"><span class="style-tag">SAMPLE</span><span class="style-label">メンズショート</span></div>
+      <div class="style-card sc-6"><span class="style-tag">SAMPLE</span><span class="style-label">大人カジュアルパーマ</span></div>
+    </div>
+    <p class="style-note">※ 上記は色味・雰囲気を伝えるためのイメージカードです。実際の施術写真は制作時に差し替えます。</p>
+  </section>
+
+  <section class="section wrap" id="access">
+    <div class="section-head">
+      <span class="eyebrow">ACCESS</span>
+      <h2>アクセス・営業時間</h2>
+      <p>蔵の街並みが残る嘉右衛門町エリア。東武日光線・栃木駅から徒歩圏内です。</p>
+    </div>
+    <div class="access-layout">
+      <dl class="info-list">
+        <div class="info-row">
+          <dt>住所</dt>
+          <dd>栃木県栃木市嘉右衛門町6-13<small>蔵の街大通り沿い、白壁の町家1階</small></dd>
+        </div>
+        <div class="info-row">
+          <dt>電話</dt>
+          <dd>0282-00-0000<small>受付時間内にお電話ください</small></dd>
+        </div>
+        <div class="info-row">
+          <dt>営業時間</dt>
+          <dd>平日 10:00&ndash;19:00（最終受付 18:00）<small>土日 9:00&ndash;18:00（最終受付 17:00）</small></dd>
+        </div>
+        <div class="info-row">
+          <dt>定休日</dt>
+          <dd>火曜・第3月曜<small>年末年始・夏季休業あり</small></dd>
+        </div>
+        <div class="info-row">
+          <dt>駐車場</dt>
+          <dd>専用駐車場 2台<small>満車時は近隣の観光駐車場をご案内します</small></dd>
+        </div>
+      </dl>
+      <div class="map-card">
+        <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-7.5-7-12a7 7 0 0 1 14 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.6"/></svg>
+        <strong>栃木駅から徒歩12分</strong>
+        <span>実際の公開時は地図を埋め込みます（本ページはサンプルのため簡易表示です）。</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="reserve">
+    <div class="section-head">
+      <span class="eyebrow">RESERVE</span>
+      <h2>ご予約・お問い合わせ</h2>
+      <p>お電話のほか、下記フォームからもご相談いただけます。折り返しご連絡いたします。</p>
+    </div>
+    <form class="reserve-panel" id="reserve-form">
+      <div class="field">
+        <label for="rf-name">お名前</label>
+        <input id="rf-name" name="name" type="text" placeholder="栃木 花子" required>
+      </div>
+      <div class="field">
+        <label for="rf-tel">電話番号</label>
+        <input id="rf-tel" name="tel" type="tel" placeholder="080-0000-0000" required>
+      </div>
+      <div class="field">
+        <label for="rf-menu">ご希望メニュー</label>
+        <select id="rf-menu" name="menu">
+          <option>カット</option>
+          <option>カラー</option>
+          <option>パーマ</option>
+          <option>縮毛矯正</option>
+          <option>トリートメント</option>
+          <option>相談してから決めたい</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="rf-date">ご希望日時</label>
+        <input id="rf-date" name="date" type="text" placeholder="例）今週土曜の午後">
+      </div>
+      <div class="field full">
+        <label for="rf-message">ご要望・メッセージ</label>
+        <textarea id="rf-message" name="message" placeholder="髪のお悩みや、なりたいイメージなどご自由にご記入ください"></textarea>
+      </div>
+      <div class="reserve-submit">
+        <button class="btn btn-primary" type="submit">この内容で送信する</button>
+        <span class="reserve-note">※ 本ページはサンプルのため、送信するとメールソフトが起動します（実際の予約は反映されません）。</span>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <strong>美容室 凪 -nagi-</strong>
+    <span>栃木県栃木市嘉右衛門町6-13（蔵の街）／ 0282-00-0000</span>
+    <span>※ このページはMAKRHが制作した美容室向けサンプルデザインです。実在の店舗ではありません。店名・住所・料金はすべて架空のものです。</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('reserve-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('rf-name').value;
+    var tel = document.getElementById('rf-tel').value;
+    var menu = document.getElementById('rf-menu').value;
+    var date = document.getElementById('rf-date').value;
+    var message = document.getElementById('rf-message').value;
+    var subject = encodeURIComponent('【美容室 凪】ご予約・お問い合わせ（' + name + '様）');
+    var body = encodeURIComponent(
+      'お名前: ' + name + '\n' +
+      '電話番号: ' + tel + '\n' +
+      'ご希望メニュー: ' + menu + '\n' +
+      'ご希望日時: ' + date + '\n\n' +
+      message
+    );
+    window.location.href = 'mailto:contact@example.com?subject=' + subject + '&body=' + body;
+  });
+</script>
