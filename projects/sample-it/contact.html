@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>お問い合わせ｜リンクフィールド株式会社</title>
+<meta name="description" content="システム開発・DX推進に関するご相談はこちらから。栃木県宇都宮市のリンクフィールド株式会社が、要件定義前の段階からご相談を承ります。※本サイトはMAKRH制作のデザインサンプルです。">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Murecho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true"><span>LF</span></span>
+      <span class="brand-name">リンクフィールド株式会社<small>LinkField Inc.</small></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span></span>
+      <span class="visually-hidden">メニューを開く</span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="主要メニュー">
+      <a href="index.html">トップ</a>
+      <a href="company.html">会社概要</a>
+      <a href="business.html">事業内容</a>
+      <a href="works.html">開発実績</a>
+      <a href="recruit.html">採用情報</a>
+      <a href="contact.html" class="nav-cta" aria-current="page">開発の相談をする</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="grid-veil" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="breadcrumb"><a href="index.html">トップ</a><span>/</span><span>お問い合わせ</span></p>
+      <span class="eyebrow on-dark">Contact</span>
+      <h1>お問い合わせ・開発相談</h1>
+      <p class="lead">「何から始めればいいか分からない」段階でも構いません。まずは現状をお聞かせください。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Flow</span>
+        <h2>お問い合わせから初回打ち合わせまで</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 7l8 6 8-6"/></svg>
+          </div>
+          <h3>1. フォーム送信</h3>
+          <p>下記フォームまたはメールにて、現状の課題やご要望をお送りください。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <h3>2. 1〜2営業日で返信</h3>
+          <p>担当者より、ヒアリング日程の調整をご連絡します。営業目的の一方的な提案は行いません。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>3. 初回ヒアリング（無料）</h3>
+          <p>オンラインまたは訪問にて、60〜90分程度のヒアリングを行います。ご相談のみでも問題ありません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="grid-2" style="align-items:flex-start;">
+        <div>
+          <div class="section-head">
+            <span class="eyebrow">Form</span>
+            <h2>お問い合わせフォーム</h2>
+            <p>必須項目をご入力のうえ送信してください。送信するとメールソフトが起動します。</p>
+          </div>
+          <form class="form" id="contact-form">
+            <div class="form-row">
+              <div class="field">
+                <label for="cf-company">会社名・組織名</label>
+                <input id="cf-company" name="company" type="text" autocomplete="organization">
+              </div>
+              <div class="field">
+                <label for="cf-name">お名前<span class="req">必須</span></label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="cf-email">メールアドレス<span class="req">必須</span></label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="cf-tel">電話番号</label>
+                <input id="cf-tel" name="tel" type="tel" autocomplete="tel" placeholder="028-000-0000">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="cf-category">ご相談内容</label>
+                <select id="cf-category" name="category">
+                  <option>新規システム開発の相談</option>
+                  <option>既存システムの刷新・リプレイス</option>
+                  <option>業務DX・課題整理の相談</option>
+                  <option>GENBA Boardについて</option>
+                  <option>採用について</option>
+                  <option>その他</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="cf-budget">ご予算感</label>
+                <select id="cf-budget" name="budget">
+                  <option>未定・相談しながら決めたい</option>
+                  <option>100万円未満</option>
+                  <option>100万〜300万円</option>
+                  <option>300万〜800万円</option>
+                  <option>800万円以上</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="cf-message">ご相談内容の詳細<span class="req">必須</span></label>
+              <textarea id="cf-message" name="message" rows="5" required placeholder="現状の課題、実現したいこと、希望の時期などをご自由にご記入ください"></textarea>
+            </div>
+            <div class="form-submit">
+              <button class="btn btn-primary" type="submit">この内容で送信する</button>
+              <span class="form-note">※ 本サイトはサンプルのため、送信するとメールソフトが起動します（実際の送受信はできません）。</span>
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <div class="section-head">
+            <span class="eyebrow">Info</span>
+            <h2>会社情報</h2>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <tbody>
+                <tr><th>会社名</th><td>リンクフィールド株式会社</td></tr>
+                <tr><th>所在地</th><td>〒321-0000<br>栃木県宇都宮市宮みらい8-1<br>みらいテラス21 8F</td></tr>
+                <tr><th>電話番号</th><td><a href="tel:0280000000">028-000-0000</a><br><span class="form-note">受付時間：平日9:00〜18:00</span></td></tr>
+                <tr><th>メール</th><td><a href="mailto:contact@example.com">contact@example.com</a></td></tr>
+                <tr><th>アクセス</th><td>LRTライトライン「宇都宮駅東口」停留場より徒歩4分</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card mt-lg" style="text-align:center;">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--accent); margin:0 auto 10px; display:block;"><path d="M12 21s-7-7.5-7-12a7 7 0 0 1 14 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.6"/></svg>
+            <strong style="display:block; font-family:'Murecho',sans-serif;">宇都宮駅東口エリア「宮みらい」</strong>
+            <p style="color:var(--ink-soft); font-size:.85rem; margin-top:.5em;">実際の公開時は地図を埋め込みます（本ページはサンプルのため簡易表示です）。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" tabindex="-1">
+          <span class="brand-mark" aria-hidden="true"><span>LF</span></span>
+          <span class="brand-name">リンクフィールド株式会社<small>LinkField Inc.</small></span>
+        </a>
+        <p>栃木県宇都宮市を拠点に、受託システム開発・業務DX支援・自社SaaSプロダクト開発を手がけています。</p>
+      </div>
+      <div class="footer-col">
+        <h4>SITEMAP</h4>
+        <ul>
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="company.html">会社概要</a></li>
+          <li><a href="business.html">事業内容</a></li>
+          <li><a href="works.html">開発実績</a></li>
+          <li><a href="recruit.html">採用情報</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT</h4>
+        <ul>
+          <li>栃木県宇都宮市宮みらい8-1<br>みらいテラス21 8F</li>
+          <li><a href="tel:0280000000">028-000-0000</a></li>
+          <li><a href="mailto:contact@example.com">contact@example.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><strong>MAKRH 制作サンプル</strong> — 本サイトはWeb制作事業者MAKRHが法人営業用に制作したデザインサンプルです。「リンクフィールド株式会社」は架空の企業であり、実在する同名の企業・団体とは一切関係ありません。</p>
+      <p>掲載している会社データ・沿革・開発実績・導入事例・数値はすべて架空の設定（SAMPLE）です。電話番号・メールアドレスもダミーであり、実際の送受信はできません。</p>
+      <p>&copy; 2026 MAKRH（サンプル制作）</p>
+    </div>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>
