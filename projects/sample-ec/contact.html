@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>お問い合わせ｜ひとさじ ONLINE STORE</title>
+<meta name="description" content="ひとさじへのお問い合わせフォーム、配送・返品についてのご案内サンプルページです。">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">匙</span>
+      <span class="brand-name">ひとさじ<small>HITOSAJI ONLINE STORE</small></span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="primary-nav">
+      <span></span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="主要メニュー">
+      <a href="index.html">トップ</a>
+      <a href="products.html">商品一覧</a>
+      <a href="about.html">ブランドストーリー</a>
+      <a href="contact.html" aria-current="page">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section" style="border-top:none;">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <span class="eyebrow">CONTACT</span>
+        <h2>お問い合わせ</h2>
+        <p>商品についてのご質問、卸売のご相談などお気軽にお送りください。内容を確認のうえ、順次ご返信いたします。</p>
+        <a class="contact-email" href="mailto:contact@example.com">contact@example.com</a>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <h3>配送について</h3>
+            <ul>
+              <li>ご注文確認後、目安として3〜5営業日以内に発送いたします（繁忙期は前後する場合があります）。</li>
+              <li>配送料はご注文金額により異なります。詳細は決済時にご確認ください。</li>
+              <li>離島・一部地域は追加日数・送料がかかる場合があります。</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>返品・交換について</h3>
+            <ul>
+              <li>商品の性質上、食品の返品はお受けできません。破損・不良の場合は到着後7日以内にご連絡ください。</li>
+              <li>キッチン道具など雑貨は、未使用・未開封に限り交換をご相談いただけます。</li>
+              <li>いずれも目安の対応内容であり、詳細は個別にご案内いたします。</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="faq-note">
+          ※ 配送・返品に関する記載は目安であり、実際のご案内は個別のご注文内容に応じて変わる場合があります。
+          本ページはサンプルであり、実際の注文・配送・返品は承っておりません。
+        </p>
+      </div>
+
+      <form class="contact-form" id="contact-form">
+        <div class="field">
+          <label for="cf-name">お名前</label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="cf-email">メールアドレス</label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="cf-type">お問い合わせ種別</label>
+          <select id="cf-type" name="type">
+            <option value="商品について">商品について</option>
+            <option value="配送・返品について">配送・返品について</option>
+            <option value="卸売・取引のご相談">卸売・取引のご相談</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-message">お問い合わせ内容</label>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">メールで送る</button>
+        <p class="form-note">送信ボタンを押すとメールアプリが開きます。開かない場合は上記アドレスへ直接お送りください。</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>ひとさじ HITOSAJI</span>
+    <nav class="foot-links" aria-label="フッターメニュー">
+      <a href="index.html">トップ</a>
+      <a href="products.html">商品一覧</a>
+      <a href="about.html">ブランドストーリー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+    <span class="disclaimer">※本サイトは制作サンプルです（架空の事業者です）。掲載の商品・価格はすべてダミーであり、実際の販売は行っておりません。</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('nav-toggle');
+    var nav = document.getElementById('primary-nav');
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('cf-name').value;
+    var email = document.getElementById('cf-email').value;
+    var type = document.getElementById('cf-type').value;
+    var message = document.getElementById('cf-message').value;
+    var subject = encodeURIComponent('【ひとさじ】お問い合わせ（' + type + '）');
+    var body = encodeURIComponent('お名前: ' + name + '\nメールアドレス: ' + email + '\nお問い合わせ種別: ' + type + '\n\n' + message);
+    window.location.href = 'mailto:contact@example.com?subject=' + subject + '&body=' + body;
+  });
+</script>
+</body>
+</html>
