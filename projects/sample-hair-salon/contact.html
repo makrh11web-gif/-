@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>アクセス・予約 | hair atelier LOTUS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Shippori+Mincho:wght@600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sample-bar">これはMAKRHの制作サンプルです（架空の店舗です）。実際の施工例ではありません。 <a href="../portfolio-site/index.html">MAKRH Web工房を見る →</a></div>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html"><span class="brand-en">LOTUS</span><span class="brand-jp">hair atelier</span></a>
+    <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false">☰</button>
+    <nav class="primary-nav" aria-label="主要メニュー">
+      <a href="index.html">Home</a>
+      <a href="about.html">こだわり</a>
+      <a href="menu.html">料金メニュー</a>
+      <a href="gallery.html">スタイル</a>
+      <a href="contact.html" class="active">アクセス・予約</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">ACCESS & RESERVATION</span>
+    <h1 style="margin-top:.6em;">アクセス・ご予約</h1>
+    <p>ご来店・お電話・フォームのいずれからでもご予約いただけます。</p>
+  </div>
+</div>
+
+<main>
+  <section class="section">
+    <div class="wrap info-grid">
+      <div>
+        <span class="eyebrow">INFO</span>
+        <h2 style="margin-top:.6em;">店舗情報</h2>
+        <ul class="info-list" style="margin-top:1.4em;">
+          <li><span class="k">住所</span><span>東京都渋谷区神宮前５丁目◯◯（架空の住所です）</span></li>
+          <li><span class="k">電話</span><span>03-0000-0000（サンプル）</span></li>
+          <li><span class="k">営業時間</span><span>10:00〜19:00（最終受付 18:00）</span></li>
+          <li><span class="k">定休日</span><span>毎週火曜日・第3水曜日</span></li>
+          <li><span class="k">アクセス</span><span>表参道駅B2出口より徒歩5分</span></li>
+          <li><span class="k">駐車場</span><span>専用駐車場なし（近隣コインパーキングをご利用ください）</span></li>
+        </ul>
+      </div>
+      <div class="map-ph" aria-hidden="true">地図はサンプルのため未掲載</div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <span class="eyebrow">RESERVATION FORM</span>
+        <h2 style="margin-top:.6em;">ご予約・お問い合わせ</h2>
+        <p style="color:var(--ink-soft); margin-top:1em;">下記フォームよりご希望の日時・メニューをお送りください。折り返しご連絡いたします。</p>
+        <a class="btn btn-ghost" style="margin-top:1.6em;" href="mailto:contact@example.com">contact@example.com へ直接送る</a>
+      </div>
+      <form class="contact-form" id="contact-form">
+        <div class="field">
+          <label for="cf-name">お名前</label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="cf-menu">ご希望メニュー</label>
+          <select id="cf-menu" name="menu">
+            <option>カット</option>
+            <option>カット + カラー</option>
+            <option>カット + トリートメント</option>
+            <option>縮毛矯正</option>
+            <option>その他・ご相談</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-date">ご希望日時（第一希望）</label>
+          <input id="cf-date" name="date" type="text" placeholder="例）9/28(月) 14:00〜">
+        </div>
+        <div class="field">
+          <label for="cf-message">その他ご要望</label>
+          <textarea id="cf-message" name="message" rows="4"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">メールで送る</button>
+        <p class="form-note">送信ボタンを押すとメールアプリが開きます。開かない場合は上記アドレスへ直接お送りください。</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>hair atelier LOTUS（サンプル）</span>
+    <nav><a href="index.html">Home</a><a href="about.html">こだわり</a><a href="menu.html">料金</a><a href="gallery.html">スタイル</a><a href="contact.html">予約</a></nav>
+  </div>
+</footer>
+
+<script>
+  var t=document.querySelector('.nav-toggle'), n=document.querySelector('.primary-nav');
+  if(t){t.addEventListener('click',function(){var o=n.classList.toggle('open'); t.setAttribute('aria-expanded',o);});}
+  document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name=document.getElementById('cf-name').value;
+    var menu=document.getElementById('cf-menu').value;
+    var date=document.getElementById('cf-date').value;
+    var message=document.getElementById('cf-message').value;
+    var subject=encodeURIComponent('ご予約希望（'+name+'様）');
+    var body=encodeURIComponent('お名前: '+name+'\nご希望メニュー: '+menu+'\nご希望日時: '+date+'\n\n'+message);
+    window.location.href='mailto:contact@example.com?subject='+subject+'&body='+body;
+  });
+</script>
+</body>
+</html>
