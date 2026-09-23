@@ -46,3 +46,4 @@
 - ブランチへのpush後にVercelのプレビューが自動で作られないことがある。その場合は Vercel MCP の create_deployment（gitSource: github / org / repo / ref / sha、target指定なし＝プレビュー）で手動作成する。target に production を指定しないこと。
 - デザインの「なんか違う」への対処チェックリスト：①差し色の使いすぎ（ボタンと最重要の数字だけに絞る）②全セクション同じ見出しの型（英字ラベル＋大見出しの繰り返しはテンプレ感の元）③見出しが全部極太で叫んでいる ④汎用の素材写真 ⑤余白が広すぎて間延び。
 - 本番に反映する前に、検索対策（noindex）が meta・robots.txt・レスポンスヘッダーのどこで効いているかを確認する。Vercel のプレビューURLは自動で noindex ヘッダーが付くが、本番URLには付かない。
+- ユーザーに共有する本番URLは必ず `https://rootpage-site.vercel.app/`。`rootpage-site-makrh11web-1041.vercel.app` や `-git-` 付きのURL、個別デプロイのURLは Vercel の保護（Standard Protection）でログインが必要になり、一般の人は見られない。
