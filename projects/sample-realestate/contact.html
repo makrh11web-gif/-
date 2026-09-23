@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お問い合わせ｜HOTORI（ホトリ）住まいの設計室（制作サンプル）</title>
+<meta name="description" content="HOTORI（ホトリ）住まいの設計室へのお問い合わせフォームです。※本サイトは制作サンプルであり、架空の事業者です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">HO</span>
+      <span class="brand-name">HOTORI<small>住まいの設計室</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="主要メニュー">
+      <a href="index.html">トップ</a>
+      <a href="about.html">私たちについて</a>
+      <a href="works.html">施工・取扱事例</a>
+      <a href="contact.html" aria-current="page">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section" style="border-top:none; padding-bottom:0;">
+    <div class="wrap">
+      <span class="eyebrow">お問い合わせ</span>
+      <h1 style="font-size:clamp(1.7rem,3.2vw,2.4rem); margin-top:.5em;">まずは、お気軽にご相談ください</h1>
+    </div>
+  </section>
+
+  <section class="section" id="access">
+    <div class="wrap access-grid">
+      <div class="map-block" aria-hidden="true">
+        <span class="pin"></span>
+        <span>MAP（イメージ）</span>
+        <small>実際の地図は掲載していません</small>
+      </div>
+      <ul class="info-list">
+        <li><span class="label">設計室名</span><span>HOTORI（ホトリ）住まいの設計室</span></li>
+        <li><span class="label">住所</span><span>〒000-0000　◯◯県◯◯市本町1-2-3　ホトリビル2F</span></li>
+        <li><span class="label">最寄駅</span><span>ほとり駅　南口より徒歩7分</span></li>
+        <li><span class="label">受付時間</span><span>10:00〜18:00（水曜定休）</span></li>
+        <li><span class="label">電話番号</span><span>000-000-0000（サンプルのため実在しません）</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <span class="eyebrow">メールでのお問い合わせ</span>
+        <h2>フォームからご相談ください</h2>
+        <p>新築・リノベーション・物件探し、まだ迷っている段階でも構いません。現在の状況をお聞かせください。担当より折り返しご連絡いたします。</p>
+        <a class="contact-email" href="mailto:contact@example.com">contact@example.com</a>
+        <div class="price-note">
+          <strong>相談・お見積りについて</strong><br>
+          初回のご相談は無料です。プラン・お見積りのご提示にかかる期間や金額は、
+          敷地条件やご要望の規模によって変動する<strong>目安</strong>です。正式なご依頼前に、
+          必ず内容をご確認・ご了承いただいたうえで次のステップに進みます。
+        </div>
+      </div>
+      <form class="contact-form" id="contact-form">
+        <div class="field">
+          <label for="cf-name">お名前</label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="cf-tel">お電話番号（任意）</label>
+          <input id="cf-tel" name="tel" type="tel" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="cf-type">ご相談内容の種類</label>
+          <select id="cf-type" name="type">
+            <option value="注文住宅">注文住宅について</option>
+            <option value="リノベーション">リノベーションについて</option>
+            <option value="不動産仲介">不動産仲介・物件探しについて</option>
+            <option value="その他">その他・まだ決まっていない</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-message">ご相談内容</label>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">メールで送る</button>
+        <p class="form-note">送信ボタンを押すとメールアプリが開きます。開かない場合は上記アドレスへ直接お送りください。</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="brand-name">HOTORI<small>住まいの設計室</small></span>
+      <p>注文住宅・リノベーション・不動産仲介／暮らしのほとりに寄り添う設計室</p>
+    </div>
+    <nav class="footer-nav" aria-label="フッターメニュー">
+      <a href="index.html">トップ</a>
+      <a href="about.html">私たちについて</a>
+      <a href="works.html">施工・取扱事例</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+    <p class="footer-note">〒000-0000　◯◯県◯◯市本町1-2-3　ホトリビル2F<br>TEL 000-000-0000（サンプルのため実在の電話番号ではありません）</p>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 HOTORI（サンプル）</span>
+    <span>※本サイトは制作サンプルです（架空の事業者です）</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
