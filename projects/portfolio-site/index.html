@@ -212,7 +212,15 @@
   .work-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
   @media (max-width:820px){ .work-grid{grid-template-columns:1fr 1fr;} }
   @media (max-width:560px){ .work-grid{grid-template-columns:1fr;} }
-  .work-card{background:var(--card-bg); border:1px solid var(--rule);}
+  .work-card{
+    display:block; background:var(--card-bg); border:1px solid var(--rule);
+    text-decoration:none; color:inherit;
+    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+  a.work-card:hover, a.work-card:focus-visible{
+    transform:translateY(-3px); border-color:var(--vermillion);
+    box-shadow:0 12px 24px var(--shadow);
+  }
   .work-thumb{
     aspect-ratio:4/3; position:relative; overflow:hidden;
     display:flex; align-items:center; justify-content:center;
@@ -225,9 +233,17 @@
   .thumb-a{background:linear-gradient(155deg,var(--indigo),var(--indigo-deep));}
   .thumb-b{background:linear-gradient(155deg,#7c6a3c,#4f4426);}
   .thumb-c{background:linear-gradient(155deg,#5c6b5a,#2f3a2e);}
+  .thumb-d{background:linear-gradient(155deg,#5f6f4c,#8a7742);}
+  .thumb-e{background:linear-gradient(155deg,#1a1a1a,#8a7230);}
+  .thumb-f{background:linear-gradient(155deg,#7a6a55,#3f4a3d);}
+  .thumb-g{background:linear-gradient(155deg,#c1682f,#8a5a1f);}
+  .thumb-h{background:linear-gradient(155deg,#2e5f6b,#3f7a5c);}
   .work-body{padding:1.1em 1.2em 1.4em;}
   .work-body h3{font-size:1rem; margin-bottom:.35em;}
   .work-body p{margin:0; font-size:.85rem; color:var(--ink-soft);}
+  .work-body .view-link{
+    display:inline-block; margin-top:.7em; font-size:.78rem; color:var(--indigo);
+  }
   .work-note{margin-top:1.6em; font-size:.82rem; color:var(--ink-soft);}
 
   /* ---------- process ---------- */
@@ -377,7 +393,7 @@
       <div class="section-head">
         <span class="eyebrow">制作例</span>
         <h2>こんな見え方でつくれます</h2>
-        <p>まだ実際の制作事例がないため、業種別のサンプルデザインを掲載しています（実店舗のサイトではありません）。</p>
+        <p>まだ実際の制作事例がないため、業種別のサンプルデザインを掲載しています（実店舗のサイトではありません）。下の5点は実際に複数ページを開いて確認いただけるサンプルサイトです。</p>
       </div>
       <div class="work-grid">
         <div class="work-card">
@@ -401,8 +417,48 @@
             <p>施工実績と問い合わせフォームを重視した構成。</p>
           </div>
         </div>
+        <a class="work-card" href="../sample-realestate/index.html">
+          <div class="work-thumb thumb-d"><span class="sample-flag">SAMPLE</span>HOTORI</div>
+          <div class="work-body">
+            <h3>不動産・建築向け・スタンダード想定</h3>
+            <p>コンセプト・施工事例・お問い合わせの4ページ構成。</p>
+            <span class="view-link">実際のサンプルを見る →</span>
+          </div>
+        </a>
+        <a class="work-card" href="../sample-fashion/index.html">
+          <div class="work-thumb thumb-e"><span class="sample-flag">SAMPLE</span>LUMEN NOIR</div>
+          <div class="work-body">
+            <h3>ファッション・アパレル向け・スタンダード想定</h3>
+            <p>ブランドの世界観とコレクション紹介を重視した4ページ構成。</p>
+            <span class="view-link">実際のサンプルを見る →</span>
+          </div>
+        </a>
+        <a class="work-card" href="../sample-hotel/index.html">
+          <div class="work-thumb thumb-f"><span class="sample-flag">SAMPLE</span>碧泉庵</div>
+          <div class="work-body">
+            <h3>ホテル・観光向け・スタンダード想定</h3>
+            <p>宿泊プラン・館内施設・アクセスをまとめた4ページ構成。</p>
+            <span class="view-link">実際のサンプルを見る →</span>
+          </div>
+        </a>
+        <a class="work-card" href="../sample-ec/index.html">
+          <div class="work-thumb thumb-g"><span class="sample-flag">SAMPLE</span>ひとさじ</div>
+          <div class="work-body">
+            <h3>ECサイト向け・スタンダード想定</h3>
+            <p>商品一覧・ブランドストーリーを備えた4ページ構成のオンラインショップ。</p>
+            <span class="view-link">実際のサンプルを見る →</span>
+          </div>
+        </a>
+        <a class="work-card" href="../sample-healthcare/index.html">
+          <div class="work-thumb thumb-h"><span class="sample-flag">SAMPLE</span>みずいろ</div>
+          <div class="work-body">
+            <h3>医療・ヘルスケア向け・スタンダード想定</h3>
+            <p>院長挨拶・診療案内・アクセスを備えたクリニック向け4ページ構成。</p>
+            <span class="view-link">実際のサンプルを見る →</span>
+          </div>
+        </a>
       </div>
-      <p class="work-note">※ 実際にご依頼いただいた案件は、許可をいただき次第ここに差し替えていきます。</p>
+      <p class="work-note">※ 実際にご依頼いただいた案件は、許可をいただき次第ここに差し替えていきます。上記のサンプルサイトはいずれも架空の事業者です。</p>
     </div>
   </section>
 
