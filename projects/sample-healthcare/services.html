@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>診療案内｜みずいろクリニック（制作サンプル）</title>
+<meta name="description" content="みずいろクリニックの診療科目（内科・皮膚科・小児科）、診療時間、お支払いの目安をご案内します。※本サイトは制作サンプルであり、架空のクリニックです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">み</span>
+      <span class="brand-name">みずいろクリニック<small>内科・皮膚科・小児科</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="主要メニュー">
+      <a href="index.html">トップ</a>
+      <a href="about.html">院長・クリニック紹介</a>
+      <a href="services.html" aria-current="page">診療案内</a>
+      <a href="contact.html">アクセス・お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section" style="border-top:none; padding-bottom:0;">
+    <div class="wrap">
+      <span class="eyebrow">診療案内</span>
+      <h1 style="font-size:clamp(1.6rem,3vw,2.2rem); margin-top:.5em;">診療科目・診療時間のご案内</h1>
+      <p style="color:var(--ink-soft); max-width:56ch; margin-top:.8em;">
+        内科・皮膚科・小児科の3科を中心に診療しています。症状によっては、より専門的な医療機関へのご紹介をご案内する場合があります。
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="departments">
+    <div class="wrap">
+      <div class="dept-grid">
+        <div class="dept-card" id="internal">
+          <div class="dept-thumb t-internal">内科</div>
+          <div class="dept-body">
+            <h3>内科</h3>
+            <p>日常的な体調不良から、生活習慣病の継続的な管理まで幅広く対応します。</p>
+            <ul>
+              <li>風邪症状・発熱・体調不良全般</li>
+              <li>高血圧・糖尿病・脂質異常症などの継続管理</li>
+              <li>健康診断の結果に関するご相談</li>
+            </ul>
+          </div>
+        </div>
+        <div class="dept-card" id="derma">
+          <div class="dept-thumb t-derma">皮膚科</div>
+          <div class="dept-body">
+            <h3>皮膚科</h3>
+            <p>お肌のかゆみ・かぶれなど、日常的な皮膚トラブルのご相談を承ります。</p>
+            <ul>
+              <li>湿疹・かぶれ・アレルギー性皮膚炎</li>
+              <li>にきび・乾燥肌のご相談</li>
+              <li>水虫・とびひ・軽度のやけどや傷の処置</li>
+            </ul>
+          </div>
+        </div>
+        <div class="dept-card" id="child">
+          <div class="dept-thumb t-child">小児科</div>
+          <div class="dept-body">
+            <h3>小児科</h3>
+            <p>お子さまの体調変化や予防接種について、保護者の方と一緒に考えます。</p>
+            <ul>
+              <li>お子さまの発熱・風邪症状</li>
+              <li>予防接種に関するご相談（要予約）</li>
+              <li>乳幼児健診に関するご相談</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="hours">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">診療時間</span>
+        <h2>診療時間・休診日</h2>
+        <p>受付は診療終了の30分前までとなります。予防接種など一部の診療は事前予約制です。</p>
+      </div>
+      <div class="table-wrap">
+        <table class="schedule">
+          <caption>休診日：水曜午後・日曜・祝日</caption>
+          <thead>
+            <tr>
+              <th scope="col">時間帯</th>
+              <th scope="col">月</th>
+              <th scope="col">火</th>
+              <th scope="col">水</th>
+              <th scope="col">木</th>
+              <th scope="col">金</th>
+              <th scope="col">土</th>
+              <th scope="col">日・祝</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">午前<br>9:00〜12:30</th>
+              <td class="mark-yes">○</td>
+              <td class="mark-yes">○</td>
+              <td class="mark-yes">○</td>
+              <td class="mark-yes">○</td>
+              <td class="mark-yes">○</td>
+              <td class="mark-yes">○</td>
+              <td class="mark-no">−</td>
+            </tr>
+            <tr>
+              <th scope="row">午後<br>14:30〜18:00</th>
+              <td class="mark-yes">○</td>
+              <td class="mark-yes">○</td>
+              <td class="mark-no">−</td>
+              <td class="mark-yes">○</td>
+              <td class="mark-yes">○</td>
+              <td class="mark-no">−</td>
+              <td class="mark-no">−</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="fees">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">お支払いについて</span>
+        <h2>診療費の目安</h2>
+        <p>保険診療（3割負担の場合）における自己負担額の目安です。検査や処置の内容により実際の金額は異なります。</p>
+      </div>
+      <div class="fee-list">
+        <div class="fee-row">
+          <div class="fee-name">初診料の目安</div>
+          <div class="fee-price">¥850〜</div>
+          <p class="fee-note">初診時の問診・診察にかかる自己負担の目安です。検査を行う場合は別途費用がかかります。</p>
+        </div>
+        <div class="fee-row">
+          <div class="fee-name">再診料の目安</div>
+          <div class="fee-price">¥300〜</div>
+          <p class="fee-note">2回目以降の診察にかかる自己負担の目安です。</p>
+        </div>
+        <div class="fee-row">
+          <div class="fee-name">予防接種（自費）の目安</div>
+          <div class="fee-price">¥3,000〜</div>
+          <p class="fee-note">ワクチンの種類により金額が異なります。事前にお電話でご確認ください。</p>
+        </div>
+      </div>
+      <div class="notice-box">
+        <strong>ご注意：</strong>上記はあくまで目安であり、実際の金額をお約束するものではありません。保険証の種類や検査・処置の内容により変動しますので、詳しくは受付にてご確認ください。
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="reservation">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">ご予約について</span>
+        <h2>予約優先制でご案内しています</h2>
+        <p>お電話でのご予約を優先しつつ、当日受付も承っています（混雑状況によりお待ちいただく場合があります）。</p>
+      </div>
+      <div class="card-grid-3">
+        <div class="feature-card">
+          <h3>お電話でのご予約</h3>
+          <p>診療時間内にお電話にてご予約を承ります。初めての方もお気軽にご連絡ください。</p>
+        </div>
+        <div class="feature-card">
+          <h3>当日受付</h3>
+          <p>ご予約なしでも受診いただけますが、混雑時はお待ち時間が発生する場合があります。</p>
+        </div>
+        <div class="feature-card">
+          <h3>予防接種は要予約</h3>
+          <p>ワクチンの在庫確保のため、予防接種は事前予約をお願いしています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="brand-name">みずいろクリニック</span>
+      <p>内科・皮膚科・小児科／地域のかかりつけ医として</p>
+    </div>
+    <nav class="footer-nav" aria-label="フッターメニュー">
+      <a href="index.html">トップ</a>
+      <a href="about.html">院長・クリニック紹介</a>
+      <a href="services.html">診療案内</a>
+      <a href="contact.html">アクセス・お問い合わせ</a>
+    </nav>
+    <p class="footer-note">〒000-0000　◯◯県◯◯市中央1-2-3　みずいろビル3F<br>TEL 000-000-0000（サンプルのため実在の電話番号ではありません）</p>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 みずいろクリニック（サンプル）</span>
+    <span>※本サイトは制作サンプルです（架空の事業者・架空のクリニックです）</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
