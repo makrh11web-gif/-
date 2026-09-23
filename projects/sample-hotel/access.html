@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>アクセス・お問い合わせ｜碧泉庵 HEKISEN-AN（制作サンプル）</title>
+<meta name="description" content="碧泉庵へのアクセス方法とお問い合わせフォームです。※本サイトは制作サンプルであり、架空の宿です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">碧</span>
+      <span class="brand-name">碧泉庵<small>HEKISEN-AN　山あいの湯とサウナ</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="主要メニュー">
+      <a href="index.html">トップ</a>
+      <a href="rooms.html">客室・宿泊プラン</a>
+      <a href="facility.html">館内施設</a>
+      <a href="access.html" aria-current="page">アクセス・お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section page-intro">
+    <div class="wrap">
+      <span class="eyebrow">ACCESS &amp; CONTACT</span>
+      <h1>アクセス・お問い合わせ</h1>
+      <p class="lead">ご予約のご相談やご質問など、下記フォームよりお気軽にお問い合わせください。</p>
+    </div>
+  </section>
+
+  <section class="section" id="access">
+    <div class="wrap access-grid">
+      <div class="map-block" aria-hidden="true">
+        <span class="pin"></span>
+        <span>MAP（イメージ）</span>
+        <small>実際の地図は掲載していません</small>
+      </div>
+      <ul class="info-list">
+        <li><span class="label">宿名</span><span>碧泉庵（HEKISEN-AN）</span></li>
+        <li><span class="label">住所</span><span>〒000-0000　◯◯県◯◯郡　山あいの集落内</span></li>
+        <li><span class="label">最寄駅</span><span>◯◯駅より送迎車で約25分（要予約）</span></li>
+        <li><span class="label">お車</span><span>◯◯ICより約30分　無料駐車場15台</span></li>
+        <li><span class="label">電話番号</span><span>000-000-0000（サンプルのため実在しません）</span></li>
+        <li><span class="label">チェックイン</span><span>15:00〜18:00</span></li>
+        <li><span class="label">チェックアウト</span><span>10:00</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <span class="eyebrow">お問い合わせ</span>
+        <h2>メールでのお問い合わせ</h2>
+        <p>ご予約のご相談、プランに関するご質問、貸切サウナのご希望などお気軽にお問い合わせください。担当より折り返しご連絡いたします。</p>
+        <a class="contact-email" href="mailto:contact@example.com">contact@example.com</a>
+        <div class="notice-box">
+          <strong>ご予約について</strong>：本フォームは制作サンプルのため実際の予約機能はありません。実運用時はメール受信後、担当より空室状況をご案内する形を想定しています。
+        </div>
+      </div>
+      <form class="contact-form" id="contact-form">
+        <div class="field">
+          <label for="cf-name">お名前</label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="cf-contact">ご連絡先（電話番号 or メールアドレス）</label>
+          <input id="cf-contact" name="contact" type="text" autocomplete="tel" required>
+        </div>
+        <div class="field">
+          <label for="cf-date">ご希望日（任意）</label>
+          <input id="cf-date" name="date" type="text" placeholder="例：2026年11月中旬、1泊2名">
+        </div>
+        <div class="field">
+          <label for="cf-message">お問い合わせ内容</label>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">メールで送る</button>
+        <p class="form-note">送信ボタンを押すとメールアプリが開きます。開かない場合は上記アドレスへ直接お送りください。</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="brand-name">碧泉庵 HEKISEN-AN</span>
+      <p>山あいの温泉とプライベートサウナの宿</p>
+    </div>
+    <nav class="footer-nav" aria-label="フッターメニュー">
+      <a href="index.html">トップ</a>
+      <a href="rooms.html">客室・宿泊プラン</a>
+      <a href="facility.html">館内施設</a>
+      <a href="access.html">アクセス・お問い合わせ</a>
+    </nav>
+    <p class="footer-note">〒000-0000　◯◯県◯◯郡　山あいの集落内<br>TEL 000-000-0000（サンプルのため実在の電話番号ではありません）</p>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 碧泉庵（サンプル）</span>
+    <span>※本サイトは制作サンプルです（架空の事業者・架空の宿です）</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
