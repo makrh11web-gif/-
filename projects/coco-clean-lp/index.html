@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ココクリーン｜孤独死・事故現場の特殊清掃・原状回復</title>
+<meta name="description" content="孤独死・事故現場の特殊清掃なら、ココクリーン。24時間受付・最短翌日対応。近隣に知られないよう配慮し、清掃から遺品整理・原状回復・解体・買取まで一社で完結します。現地確認・お見積りは無料です。">
+<meta name="format-detection" content="telephone=no">
+
+<!--
+  ===== 計測タグ設置位置（広告再開の前提） =====
+  GA4 と Google広告のタグはここに「1回だけ」設置する（二重設置に注意）。
+  例:
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');   // GA4
+    gtag('config', 'AW-XXXXXXXXX');   // Google広告
+  </script>
+  電話タップ / フォーム送信のコンバージョン送信は、ページ末尾のスクリプト内
+  CONVERSION 定数に送信先ラベルを設定すると動作する。
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f6f4ef;
+  --paper:#ffffff;
+  --ink:#1f2b2d;
+  --ink-soft:#4f5d60;
+  --line:#dfe3e1;
+  --main:#2e6b66;
+  --main-dark:#1d4744;
+  --main-pale:#e6efed;
+  --accent:#d9722b;
+  --accent-dark:#b95b19;
+  --gold:#b89a5e;
+  --radius:14px;
+  --shadow:0 6px 24px rgba(31,43,45,.08);
+  --max:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.85;font-size:16px;
+  padding-bottom:76px; /* スマホ追従ボタン分 */
+}
+@media(min-width:900px){body{padding-bottom:0}}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+@media(min-width:768px){.wrap{padding:0 32px}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);
+  backdrop-filter:saturate(1.4) blur(6px);border-bottom:1px solid var(--line);
+}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:34px;height:34px;flex:none}
+.logo-text{display:flex;flex-direction:column;line-height:1.15}
+.logo-text b{font-size:19px;letter-spacing:.06em;color:var(--main-dark)}
+.logo-text small{font-size:11px;color:var(--ink-soft);letter-spacing:.12em}
+.header-tel{display:none}
+@media(min-width:900px){
+  .header-tel{display:flex;align-items:center;gap:14px}
+  .header-tel .hours{font-size:12px;color:var(--ink-soft);text-align:right;line-height:1.4}
+}
+
+/* ---------- Buttons ---------- */
+.btn-tel{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  background:var(--accent);color:#fff;text-decoration:none;border-radius:999px;
+  box-shadow:0 6px 0 var(--accent-dark),0 10px 24px rgba(217,114,43,.28);
+  transition:transform .12s,box-shadow .12s;
+}
+.btn-tel:active{transform:translateY(4px);box-shadow:0 2px 0 var(--accent-dark)}
+.btn-tel svg{width:26px;height:26px;flex:none}
+.btn-tel .t-lead{display:block;font-size:12px;letter-spacing:.08em;opacity:.95;line-height:1.3}
+.btn-tel .t-num{display:block;font-size:24px;font-weight:700;letter-spacing:.04em;line-height:1.2;font-feature-settings:"palt"}
+.btn-tel.lg{padding:14px 26px 14px 22px;width:100%;max-width:440px}
+.btn-tel.lg .t-num{font-size:clamp(24px,7vw,30px)}
+.btn-tel.sm{padding:8px 18px;box-shadow:0 4px 0 var(--accent-dark)}
+.btn-tel.sm .t-num{font-size:19px}
+.btn-tel.sm svg{width:20px;height:20px}
+.tel-note{font-size:13px;color:var(--ink-soft);margin-top:14px;text-align:center}
+.tel-note strong{color:var(--main-dark)}
+.btn-sub{
+  display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--main-dark);
+  text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;
+}
+
+/* ---------- Section common ---------- */
+section{padding:72px 0}
+@media(min-width:768px){section{padding:96px 0}}
+.sec-head{text-align:center;margin-bottom:40px}
+.sec-no{
+  display:inline-block;font-family:"Noto Serif JP",serif;font-size:13px;letter-spacing:.2em;
+  color:var(--gold);margin-bottom:8px
+}
+.sec-title{font-size:clamp(23px,5.6vw,32px);font-weight:700;line-height:1.5;letter-spacing:.04em}
+.sec-lead{margin-top:14px;color:var(--ink-soft);font-size:15px}
+.bg-white{background:var(--paper)}
+.bg-pale{background:var(--main-pale)}
+
+/* ---------- ① First view ---------- */
+.fv{position:relative;overflow:hidden;padding:28px 0 44px;background:linear-gradient(180deg,#fbfaf6 0%,var(--bg) 100%)}
+.fv-grid{display:grid;gap:28px;align-items:center}
+@media(min-width:900px){.fv{padding:64px 0 80px}.fv-grid{grid-template-columns:1.05fr .95fr;gap:48px}}
+.fv-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--main-dark);
+  background:var(--main-pale);border-radius:999px;padding:4px 14px;letter-spacing:.06em
+}
+.fv h1{
+  font-family:"Noto Serif JP",serif;font-weight:600;
+  font-size:clamp(25px,7vw,42px);line-height:1.55;margin:14px 0 18px;letter-spacing:.03em
+}
+.fv h1 .em{background:linear-gradient(transparent 68%,rgba(184,154,94,.35) 68%)}
+.fv-points{list-style:none;display:grid;gap:8px;margin-bottom:22px}
+.fv-points li{display:flex;align-items:center;gap:10px;font-weight:500;font-size:15px}
+.fv-points li::before{
+  content:"";width:20px;height:20px;flex:none;border-radius:50%;
+  background:var(--main) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-6.5' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat;
+}
+.fv-cta{display:flex;flex-direction:column;align-items:flex-start}
+.fv-cta .tel-note{text-align:left}
+.fv-visual{position:relative}
+.fv-visual svg{width:100%;height:auto;border-radius:20px;box-shadow:var(--shadow)}
+@media(max-width:899px){.fv-visual{order:2}}
+
+/* ---------- ② Situations ---------- */
+.check-list{list-style:none;display:grid;gap:12px;max-width:720px;margin:0 auto}
+.check-list li{
+  background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px 14px 52px;position:relative;font-weight:500
+}
+.check-list li::before{
+  content:"";position:absolute;left:16px;top:50%;transform:translateY(-50%);
+  width:22px;height:22px;border:2px solid var(--main);border-radius:5px;background:#fff;
+}
+.check-list li::after{
+  content:"";position:absolute;left:22px;top:50%;width:8px;height:13px;
+  border:solid var(--accent);border-width:0 3px 3px 0;transform:translateY(-70%) rotate(45deg);
+}
+.empathy{
+  max-width:720px;margin:36px auto 0;text-align:center;background:var(--paper);
+  border-radius:var(--radius);padding:30px 20px;box-shadow:var(--shadow)
+}
+.empathy p{font-size:17px;font-weight:700;line-height:1.8}
+.empathy p span{color:var(--accent-dark)}
+.empathy small{display:block;color:var(--ink-soft);margin:6px 0 20px;font-size:14px}
+.empathy .btn-tel{margin:0 auto}
+
+/* ---------- ③ Services ---------- */
+.svc-grid{display:grid;gap:16px}
+@media(min-width:640px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
+.svc{
+  background:var(--paper);border-radius:var(--radius);padding:24px 22px;border:1px solid var(--line);
+  display:flex;gap:16px;align-items:flex-start
+}
+.svc-ico{width:52px;height:52px;flex:none;border-radius:12px;background:var(--main-pale);display:grid;place-items:center}
+.svc-ico svg{width:30px;height:30px}
+.svc h3{font-size:18px;margin-bottom:4px}
+.svc p{font-size:14px;color:var(--ink-soft);line-height:1.7}
+.svc-note{margin-top:20px;font-size:13px;color:var(--ink-soft);text-align:center}
+
+/* ---------- ④ Comparison ---------- */
+.cmp-box{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:8px;max-width:860px;margin:0 auto}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;table-layout:fixed}
+.cmp th,.cmp td{padding:12px 4px;text-align:center;border-bottom:1px solid var(--line);vertical-align:middle}
+.cmp thead th{font-size:12px;color:var(--ink-soft);font-weight:500;line-height:1.35;padding:14px 2px}
+.cmp tbody th{text-align:left;font-weight:500;padding-left:8px;line-height:1.45;width:36%;font-size:13px}
+@media(min-width:768px){.cmp tbody th{font-size:15px;padding-left:16px}}
+.cmp tr:last-child th,.cmp tr:last-child td{border-bottom:0}
+.cmp .ours{background:var(--main-pale);color:var(--main-dark)}
+.cmp thead .ours{background:var(--main);color:#fff;font-weight:700;font-size:13px;border-radius:10px 10px 0 0}
+.cmp tbody tr:last-child .ours{border-radius:0 0 10px 10px}
+.mk{font-size:20px;line-height:1;font-weight:700}
+.mk.o{color:var(--main)}
+.mk.t{color:var(--gold)}
+.mk.x{color:#a9b1b2;font-weight:400}
+.ours .mk.o{font-size:24px;color:var(--main-dark)}
+@media(min-width:768px){.cmp{font-size:15px}.cmp thead th{font-size:14px}.cmp th,.cmp td{padding:16px 8px}}
+.cmp-legend{text-align:right;font-size:12px;color:var(--ink-soft);margin:8px 6px 0}
+.cmp-text{max-width:720px;margin:36px auto 0;text-align:center}
+.cmp-text p{color:var(--ink-soft);font-size:15px}
+.cmp-text .strong{
+  margin-top:20px;font-family:"Noto Serif JP",serif;font-size:clamp(19px,4.8vw,24px);
+  color:var(--ink);line-height:1.7;font-weight:600
+}
+.cmp-text .strong span{color:var(--main)}
+
+/* ---------- ⑤ Flow ---------- */
+.flow{list-style:none;max-width:720px;margin:0 auto;counter-reset:step}
+.flow li{position:relative;padding:0 0 28px 64px}
+.flow li::before{
+  counter-increment:step;content:counter(step);
+  position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--main);color:var(--main);
+  font-weight:700;font-size:18px;display:grid;place-items:center;
+}
+.flow li::after{content:"";position:absolute;left:21px;top:46px;bottom:4px;width:2px;background:var(--line)}
+.flow li:last-child::after{display:none}
+.flow h3{font-size:18px;line-height:1.5;padding-top:8px}
+.flow h3 small{font-size:13px;color:var(--main);font-weight:500;margin-left:6px}
+.flow p{color:var(--ink-soft);font-size:15px;margin-top:2px}
+.flow li.ext{padding-bottom:0}
+.flow li.ext::before{background:var(--main);color:#fff}
+.flow li.ext .ext-box{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:14px 16px;margin-top:6px}
+.flow li.ext h3{padding-top:0}
+
+/* ---------- ⑥ Consideration ---------- */
+.care-grid{display:grid;gap:16px}
+@media(min-width:768px){.care-grid{grid-template-columns:repeat(3,1fr)}}
+.care{background:var(--paper);border-radius:var(--radius);padding:28px 22px;text-align:center}
+.care-ico{width:64px;height:64px;margin:0 auto 14px;border-radius:50%;background:var(--main-pale);display:grid;place-items:center}
+.care-ico svg{width:34px;height:34px}
+.care h3{font-size:18px;margin-bottom:8px}
+.care p{font-size:14px;color:var(--ink-soft);text-align:left}
+
+/* ---------- ⑦ Price ---------- */
+.price-box{max-width:720px;margin:0 auto;background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.price-box .top{padding:28px 22px;text-align:center;border-bottom:1px dashed var(--line)}
+.price-box .top p{color:var(--ink-soft)}
+.free-badges{display:flex;gap:12px;justify-content:center;padding:26px 16px 8px;flex-wrap:wrap}
+.free-badge{
+  width:132px;height:132px;border-radius:50%;background:var(--main);color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.3
+}
+.free-badge small{font-size:13px}
+.free-badge b{font-size:30px;letter-spacing:.06em;font-family:"Noto Serif JP",serif}
+.price-box .bottom{padding:12px 22px 30px;text-align:center}
+.price-box .bottom p{font-weight:700;font-size:16px}
+.price-box .bottom p span{color:var(--accent-dark)}
+
+/* ---------- ⑧ License ---------- */
+.lic{max-width:760px;margin:0 auto;background:var(--paper);border-radius:var(--radius);border:1px solid var(--line)}
+.lic-row{display:grid;gap:4px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.lic-row:last-child{border-bottom:0}
+@media(min-width:640px){.lic-row{grid-template-columns:200px 1fr;gap:16px}}
+.lic-row dt{font-weight:700;color:var(--main-dark);display:flex;align-items:center;gap:8px}
+.lic-row dt::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--gold);flex:none}
+.lic-row dd{font-size:15px;font-feature-settings:"tnum"}
+.lic-row dd ul{list-style:none}
+.lic-msg{max-width:760px;margin:24px auto 0;text-align:center;font-size:14px;color:var(--ink-soft)}
+
+/* ---------- ⑨ B2B ---------- */
+.b2b{background:var(--main-dark);color:#fff;position:relative;overflow:hidden}
+.b2b::before{
+  content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.09),transparent 70%)
+}
+.b2b .sec-no{color:#d8c393}
+.b2b-grid{display:grid;gap:32px;position:relative}
+@media(min-width:900px){.b2b-grid{grid-template-columns:1.1fr .9fr;align-items:center;gap:56px}}
+.b2b-tag{display:inline-block;border:1px solid rgba(255,255,255,.5);border-radius:4px;font-size:12px;padding:2px 10px;letter-spacing:.12em;margin-bottom:14px}
+.b2b h2{font-size:clamp(22px,5.4vw,30px);line-height:1.55;margin-bottom:18px}
+.b2b p{color:rgba(255,255,255,.88);font-size:15px}
+.b2b p + p{margin-top:12px}
+.b2b-list{list-style:none;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);padding:22px}
+.b2b-list li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:15px}
+.b2b-list li:last-child{border-bottom:0}
+.b2b-list li b{color:#d8c393;font-family:"Noto Serif JP",serif;flex:none;width:28px}
+.btn-corp{
+  display:inline-flex;align-items:center;gap:10px;margin-top:26px;background:#fff;color:var(--main-dark);
+  font-weight:700;text-decoration:none;border-radius:999px;padding:14px 28px;font-size:16px;
+  box-shadow:0 5px 0 rgba(0,0,0,.25)
+}
+.btn-corp:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.btn-corp svg{width:18px;height:18px}
+.b2b-tel{margin-top:14px;font-size:14px;color:rgba(255,255,255,.8)}
+.b2b-tel a{color:#fff;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5)}
+
+/* ---------- ⑩ FAQ ---------- */
+.faq{max-width:760px;margin:0 auto;display:grid;gap:12px}
+.faq details{background:var(--paper);border-radius:12px;border:1px solid var(--line)}
+.faq summary{
+  list-style:none;cursor:pointer;padding:18px 48px 18px 56px;position:relative;font-weight:700;line-height:1.6
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before,.faq .a::before{
+  position:absolute;left:18px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  font-family:"Noto Serif JP",serif;font-size:14px;font-weight:600
+}
+.faq summary::before{content:"Q";top:17px;background:var(--main);color:#fff}
+.faq summary::after{
+  content:"";position:absolute;right:20px;top:50%;width:10px;height:10px;
+  border:solid var(--ink-soft);border-width:0 2px 2px 0;transform:translateY(-70%) rotate(45deg);transition:transform .2s
+}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq .a{position:relative;padding:0 20px 20px 56px;color:var(--ink-soft);font-size:15px}
+.faq .a::before{content:"A";top:-1px;background:var(--gold);color:#fff}
+
+/* ---------- ⑪ Contact ---------- */
+.contact-grid{display:grid;gap:24px;max-width:960px;margin:0 auto}
+@media(min-width:900px){.contact-grid{grid-template-columns:1fr 1fr;align-items:start}}
+.contact-tel{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 22px;text-align:center;border-top:5px solid var(--accent)}
+.contact-tel h3{font-size:20px;margin-bottom:6px}
+.contact-tel p{font-size:14px;color:var(--ink-soft);margin-bottom:20px}
+.contact-tel .btn-tel{margin:0 auto}
+.contact-tel ul{list-style:none;text-align:left;margin:22px auto 0;max-width:340px;font-size:14px;display:grid;gap:4px}
+.contact-tel li::before{content:"・";color:var(--main)}
+.form-card{background:var(--paper);border-radius:var(--radius);padding:20px 18px;border:1px solid var(--line)}
+.form-card h3{font-size:17px;line-height:1.5}
+.form-card .sub{font-size:13px;color:var(--ink-soft);margin-bottom:10px}
+.corp-flag{display:none;font-size:13px;background:var(--main-pale);color:var(--main-dark);border-radius:8px;padding:6px 12px;margin-bottom:12px;font-weight:700}
+.corp-flag.on{display:block}
+.field{margin-bottom:8px}
+.field label{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;margin-bottom:2px;line-height:1.5}
+.req{font-size:11px;background:var(--accent);color:#fff;border-radius:4px;padding:0 6px;font-weight:500}
+.field input,.field textarea{
+  width:100%;font:inherit;font-size:16px;border:1px solid #c9d0ce;border-radius:8px;padding:8px 12px;background:#fbfcfb;color:var(--ink)
+}
+.field textarea{height:58px;resize:vertical;line-height:1.6}
+.field input:focus,.field textarea:focus{outline:2px solid var(--main);outline-offset:1px;border-color:var(--main);background:#fff}
+.field .err{display:none;color:#c0392b;font-size:12px;margin-top:2px}
+.field.invalid input,.field.invalid textarea{border-color:#c0392b}
+.field.invalid .err{display:block}
+.btn-submit{
+  width:100%;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:17px;color:#fff;background:var(--main);
+  border-radius:999px;padding:12px;box-shadow:0 5px 0 var(--main-dark);margin-top:6px
+}
+.btn-submit:active{transform:translateY(3px);box-shadow:0 2px 0 var(--main-dark)}
+.btn-submit[disabled]{opacity:.6;cursor:wait}
+.form-note{font-size:12px;color:var(--ink-soft);margin-top:8px;line-height:1.5}
+.thanks{display:none;text-align:center;padding:20px 4px}
+.thanks.on{display:block}
+.thanks-ico{width:64px;height:64px;margin:0 auto 14px;border-radius:50%;background:var(--main-pale);display:grid;place-items:center}
+.thanks h3{font-size:20px;margin-bottom:10px}
+.thanks p{font-size:15px;color:var(--ink-soft);text-align:left}
+.thanks .btn-tel{margin:20px auto 0}
+
+/* ---------- Footer ---------- */
+.site-footer{background:#172426;color:rgba(255,255,255,.75);padding:40px 0 30px;font-size:13px}
+.site-footer .logo-text b{color:#fff}
+.site-footer .logo-text small{color:rgba(255,255,255,.6)}
+.footer-grid{display:grid;gap:18px}
+@media(min-width:768px){.footer-grid{grid-template-columns:1fr auto;align-items:end}}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{text-decoration:none;color:rgba(255,255,255,.8)}
+.copy{margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-size:12px;color:rgba(255,255,255,.5)}
+
+/* ---------- Sticky (SP) ---------- */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);
+  border-top:1px solid var(--line);padding:8px 10px calc(8px + env(safe-area-inset-bottom));
+  display:flex;gap:8px;box-shadow:0 -6px 20px rgba(31,43,45,.1)
+}
+.sticky-cta .btn-tel{flex:1;padding:8px 12px;border-radius:12px;box-shadow:0 4px 0 var(--accent-dark)}
+.sticky-cta .btn-tel .t-num{font-size:20px}
+.sticky-cta .btn-tel svg{width:22px;height:22px}
+.sticky-form{
+  flex:none;width:68px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border-radius:12px;border:1.5px solid var(--main);color:var(--main-dark);text-decoration:none;font-size:11px;font-weight:700;line-height:1.3
+}
+.sticky-form svg{width:20px;height:20px;margin-bottom:2px}
+@media(min-width:900px){.sticky-cta{display:none}}
+
+/* 提案用サンプル表示（納品時に削除） */
+.sample-note{background:#fff7e6;color:#7a5a12;font-size:12px;text-align:center;padding:6px 16px;border-bottom:1px solid #f0dfb5}
+
+@media(min-width:768px){.sp-only{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- 提案用サンプル表示（納品時に削除） -->
+<div class="sample-note">※ 本ページは提案用の仮デザインです。電話番号・フォーム送信先は仮の状態です。</div>
+
+<!-- ============ Header ============ -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="ココクリーン トップへ">
+      <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="#2e6b66"/>
+        <path d="M11 22c3-7 6-10 9-10s6 3 9 10" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M14 27h12" stroke="#d8c393" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-text"><b>ココクリーン</b><small>特殊清掃・原状回復</small></span>
+    </a>
+    <div class="header-tel">
+      <div class="hours">24時間受付<br>現地確認・お見積り無料</div>
+      <a href="tel:0565000000" class="btn-tel sm js-tel" data-cv-place="header">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg>
+        <span class="t-num">0565-○○-○○○○</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ ① ファーストビュー ============ -->
+<section class="fv" aria-label="ファーストビュー">
+  <div class="wrap fv-grid">
+    <div>
+      <span class="fv-eyebrow">孤独死・事故現場の特殊清掃</span>
+      <h1><span class="em">最短で翌日、伺います。</span><br>近隣に知られないよう<br>配慮します。</h1>
+      <ul class="fv-points">
+        <li>24時間受付・最短翌日対応</li>
+        <li>近隣に知られない配慮を徹底</li>
+        <li>清掃から解体・買取まで一社で完結</li>
+      </ul>
+      <div class="fv-cta">
+        <a href="tel:0565000000" class="btn-tel lg js-tel" data-cv-place="fv">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg>
+          <span><span class="t-lead">24時間受付｜無料でご相談ください</span><span class="t-num">0565-○○-○○○○</span></span>
+        </a>
+        <p class="tel-note">状況を伺うだけでも構いません。<strong>現地確認・お見積りは無料</strong>です。</p>
+      </div>
+    </div>
+
+    <!-- イメージ：光の入る、整った室内（現場写真は使わない方針のためイラストで表現。実写に差し替える場合も清掃後の室内・抽象イメージのみ） -->
+    <div class="fv-visual" aria-hidden="true">
+      <svg viewBox="0 0 560 420" role="img">
+        <defs>
+          <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3efe6"/><stop offset="1" stop-color="#e9e3d6"/></linearGradient>
+          <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9c7a6"/><stop offset="1" stop-color="#c9b28a"/></linearGradient>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe6e8"/><stop offset="1" stop-color="#f7f3e6"/></linearGradient>
+          <linearGradient id="beam" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff8e1" stop-opacity=".85"/><stop offset="1" stop-color="#fff8e1" stop-opacity="0"/></linearGradient>
+        </defs>
+        <rect width="560" height="420" fill="url(#wall)"/>
+        <rect y="300" width="560" height="120" fill="url(#floor)"/>
+        <g stroke="#bfa57c" stroke-width="1" opacity=".5">
+          <line x1="0" y1="330" x2="560" y2="330"/><line x1="0" y1="365" x2="560" y2="365"/><line x1="0" y1="400" x2="560" y2="400"/>
+        </g>
+        <rect x="0" y="292" width="560" height="10" fill="#f8f5ee"/>
+        <!-- window -->
+        <rect x="300" y="50" width="200" height="200" rx="4" fill="#fbfaf6"/>
+        <rect x="312" y="62" width="176" height="176" fill="url(#sky)"/>
+        <line x1="400" y1="62" x2="400" y2="238" stroke="#fbfaf6" stroke-width="8"/>
+        <line x1="312" y1="150" x2="488" y2="150" stroke="#fbfaf6" stroke-width="6"/>
+        <path d="M312 238 C340 200 360 210 380 190 C400 176 430 196 488 170 V238Z" fill="#bcd8c9" opacity=".7"/>
+        <!-- curtain -->
+        <path d="M284 40 h24 v230 q-12 8-24 0z" fill="#ffffff" opacity=".9"/>
+        <path d="M492 40 h24 v230 q-12 8-24 0z" fill="#ffffff" opacity=".9"/>
+        <rect x="276" y="36" width="248" height="6" rx="3" fill="#b89a5e"/>
+        <!-- light beam -->
+        <path d="M312 62 L488 62 L400 420 L90 420Z" fill="url(#beam)" opacity=".75"/>
+        <!-- plant -->
+        <rect x="96" y="250" width="44" height="50" rx="6" fill="#fbfaf6"/>
+        <path d="M118 250c-4-30-26-40-36-56 18 2 30 20 36 38 2-26 12-44 30-56-4 22-18 40-28 60" fill="#6f9f86"/>
+        <path d="M118 250c6-20 22-30 36-34-8 14-20 24-34 36" fill="#8db89e"/>
+        <!-- shelf -->
+        <rect x="170" y="210" width="96" height="90" rx="4" fill="#fbfaf6"/>
+        <rect x="170" y="252" width="96" height="3" fill="#e4dccb"/>
+        <rect x="186" y="224" width="26" height="20" rx="2" fill="#dfe9e6"/>
+        <circle cx="236" cy="234" r="9" fill="#e7d8b8"/>
+        <!-- frame on wall -->
+        <rect x="96" y="96" width="120" height="84" rx="3" fill="#fbfaf6" stroke="#d8ccb3" stroke-width="3"/>
+        <path d="M106 170 L140 132 L162 152 L180 136 L206 170Z" fill="#cfe0da"/>
+        <circle cx="186" cy="118" r="8" fill="#f1dca8"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ② こんな状況ではありませんか ============ -->
+<section class="bg-white" id="situation">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">CASE</span>
+      <h2 class="sec-title">こんな状況では<br class="sp-only">ありませんか？</h2>
+    </div>
+    <ul class="check-list">
+      <li>親族が亡くなり、発見が遅れてしまった</li>
+      <li>室内のにおいが取れない</li>
+      <li>アパートの入居者が亡くなり、原状回復が必要</li>
+      <li>大量の家財が残されていて手がつけられない</li>
+      <li>何社に頼めばいいのか分からない</li>
+      <li>近所に知られたくない</li>
+      <li>自分で片付けようとしたが、無理だった</li>
+    </ul>
+    <div class="empathy">
+      <p>どれか一つでも当てはまれば、<br><span>そのままお電話ください。</span></p>
+      <small>片付けてから連絡する必要はありません。状況を伺うだけでも構いません。</small>
+      <a href="tel:0565000000" class="btn-tel lg js-tel" data-cv-place="situation">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg>
+        <span><span class="t-lead">24時間受付｜ご相談無料</span><span class="t-num">0565-○○-○○○○</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ③ 対応できること ============ -->
+<section id="service">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">SERVICE</span>
+      <h2 class="sec-title">対応できること</h2>
+      <p class="sec-lead">お部屋の清掃から、その後の住まいのことまで。</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="svc-ico"><svg viewBox="0 0 32 32" fill="none" stroke="#2e6b66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 29l2-12h10l2 12z"/><path d="M13 17V5a3 3 0 016 0v12"/><path d="M8 23h16"/><path d="M26 6l1-2M28 9h2M26 12l1 2"/></svg></div>
+        <div><h3>特殊清掃</h3><p>汚損箇所の除去・洗浄・消臭・害虫駆除</p></div>
+      </div>
+      <div class="svc">
+        <div class="svc-ico"><svg viewBox="0 0 32 32" fill="none" stroke="#2e6b66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l12-6 12 6v14H4z"/><path d="M4 12l12 6 12-6M16 18v8"/></svg></div>
+        <div><h3>遺品整理・家財の撤去</h3><p>仕分け、搬出、処分まで</p></div>
+      </div>
+      <div class="svc">
+        <div class="svc-ico"><svg viewBox="0 0 32 32" fill="none" stroke="#2e6b66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 27h22M7 27V9h18v18"/><path d="M12 14h8M12 19h8"/><path d="M21 4l3 3-8 8h-3v-3z"/></svg></div>
+        <div><h3>原状回復</h3><p>床材・壁材の交換、リフォーム</p></div>
+      </div>
+      <div class="svc">
+        <div class="svc-ico"><svg viewBox="0 0 32 32" fill="none" stroke="#2e6b66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4l3.5 7 7.5 1-5.5 5.3 1.3 7.7L16 21.3 9.2 25l1.3-7.7L5 12l7.5-1z"/></svg></div>
+        <div><h3>買取</h3><p>家財・骨董・貴金属などの査定</p></div>
+      </div>
+      <div class="svc">
+        <div class="svc-ico"><svg viewBox="0 0 32 32" fill="none" stroke="#2e6b66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28h24"/><path d="M8 28V14l8-6 8 6v14"/><path d="M13 28v-7h6v7"/><path d="M22 4l6 6"/></svg></div>
+        <div><h3>解体</h3><p>建物の解体まで自社で対応</p></div>
+      </div>
+      <div class="svc">
+        <div class="svc-ico"><svg viewBox="0 0 32 32" fill="none" stroke="#2e6b66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15L16 6l11 9"/><path d="M8 13v14h16V13"/><path d="M13 20l2.5 2.5L20 18"/></svg></div>
+        <div><h3>不動産の買取</h3><p>事故があった物件も買い取れます</p></div>
+      </div>
+    </div>
+    <p class="svc-note">※ 作業内容や仕上がりは現場の状況によって異なります。現地確認の際にご説明します。</p>
+  </div>
+</section>
+
+<!-- ============ ④ 他社との違い ============ -->
+<section class="bg-white" id="difference">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">DIFFERENCE</span>
+      <h2 class="sec-title">他社との違い<br><small style="font-size:.62em;color:var(--main)">── 一社で完結します</small></h2>
+    </div>
+    <div class="cmp-box">
+      <table class="cmp">
+        <caption class="sr">業者ごとの対応範囲の比較</caption>
+        <thead>
+          <tr>
+            <th scope="col"><span class="sr">対応内容</span></th>
+            <th scope="col">清掃<br>業者</th>
+            <th scope="col">解体<br>業者</th>
+            <th scope="col">不動産<br>会社</th>
+            <th scope="col" class="ours">ココ<br>クリーン</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">特殊清掃・消臭</th><td><span class="mk o">○</span></td><td><span class="mk x">×</span></td><td><span class="mk x">×</span></td><td class="ours"><span class="mk o">◎</span></td></tr>
+          <tr><th scope="row">家財の撤去・処分</th><td><span class="mk t">△</span></td><td><span class="mk x">×</span></td><td><span class="mk x">×</span></td><td class="ours"><span class="mk o">◎</span></td></tr>
+          <tr><th scope="row">使えるものの買取</th><td><span class="mk x">×</span></td><td><span class="mk x">×</span></td><td><span class="mk x">×</span></td><td class="ours"><span class="mk o">◎</span></td></tr>
+          <tr><th scope="row">建物の解体</th><td><span class="mk x">×</span></td><td><span class="mk o">○</span></td><td><span class="mk x">×</span></td><td class="ours"><span class="mk o">◎</span></td></tr>
+          <tr><th scope="row">事故物件の買取</th><td><span class="mk x">×</span></td><td><span class="mk x">×</span></td><td><span class="mk t">△</span></td><td class="ours"><span class="mk o">◎</span></td></tr>
+        </tbody>
+      </table>
+      <p class="cmp-legend">◎ 自社で一貫対応　○ 対応　△ 一部対応・外注　× 対応不可</p>
+    </div>
+    <div class="cmp-text">
+      <p>清掃業者は、処分や解体を外注します。<br>解体業者は、片付けも買取もできません。<br>不動産会社は、事故のあった物件を扱えないことがほとんどです。</p>
+      <p class="strong">清掃して、片付けて、解体して、<br>その上で買い取れる。<br><span>この形が取れる会社は、ほとんどありません。</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ⑤ ご依頼の流れ ============ -->
+<section id="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">FLOW</span>
+      <h2 class="sec-title">ご依頼の流れ</h2>
+    </div>
+    <ol class="flow">
+      <li><h3>お電話<small>24時間受付</small></h3><p>状況を伺います。10〜15分程度です。</p></li>
+      <li><h3>現地確認<small>最短で翌日・無料</small></h3><p>その場で決めていただく必要はありません。</p></li>
+      <li><h3>お見積り</h3><p>作業内容と金額をご説明します。</p></li>
+      <li><h3>作業</h3><p>日程はご希望に合わせます。</p></li>
+      <li><h3>完了・ご確認</h3><p>仕上がりを一緒にご確認いただきます。立ち会えない場合は写真でご報告します。</p></li>
+      <li class="ext">
+        <div class="ext-box">
+          <h3>その後のご相談</h3>
+          <p>建物の解体、土地の売却などもそのまま承ります。<br>別の業者を探し直す必要はありません。</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ ⑥ 近隣への配慮 ============ -->
+<section class="bg-pale" id="care">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">CONSIDERATION</span>
+      <h2 class="sec-title">近隣への配慮</h2>
+      <p class="sec-lead">「近所に知られたくない」というお気持ちに、できる限りお応えします。</p>
+    </div>
+    <div class="care-grid">
+      <div class="care">
+        <div class="care-ico"><svg viewBox="0 0 34 34" fill="none" stroke="#2e6b66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="4"/><path d="M4 26c0-4.4 3.6-8 8-8s8 3.6 8 8"/><path d="M22 12h8M26 8v8" transform="rotate(45 26 12)"/></svg></div>
+        <h3>何社も呼ぶ必要がありません</h3>
+        <p>清掃・処分・解体を別々の業者に頼むと、その回数だけ人の出入りが増えます。弊社は一社で完結するため、出入りを最小限にできます。</p>
+      </div>
+      <div class="care">
+        <div class="care-ico"><svg viewBox="0 0 34 34" fill="none" stroke="#2e6b66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="20" height="12" rx="2"/><path d="M23 16h5l3 4v4h-8"/><circle cx="9" cy="26" r="2.5"/><circle cx="26" cy="26" r="2.5"/></svg></div>
+        <h3>社名の表示について</h3>
+        <p>ご希望に応じて配慮いたします。お電話の際にお気軽にお申し付けください。</p>
+      </div>
+      <div class="care">
+        <div class="care-ico"><svg viewBox="0 0 34 34" fill="none" stroke="#2e6b66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="17" r="12"/><path d="M17 10v7l5 3"/></svg></div>
+        <h3>作業時間のご相談</h3>
+        <p>早朝・夜間など、ご希望の時間帯をご相談ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ⑦ 費用について ============ -->
+<section class="bg-white" id="price">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">PRICE</span>
+      <h2 class="sec-title">費用について</h2>
+    </div>
+    <div class="price-box">
+      <div class="top">
+        <p>現場の状況によって大きく変わるため、<br>サイト上での金額提示はしておりません。</p>
+      </div>
+      <div class="free-badges">
+        <div class="free-badge"><small>現地確認</small><b>無料</b></div>
+        <div class="free-badge"><small>お見積り</small><b>無料</b></div>
+      </div>
+      <div class="bottom">
+        <p>お見積り後にお断りいただいても、<br><span>費用は一切いただきません。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ⑧ 許可・体制 ============ -->
+<section id="license">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">LICENSE</span>
+      <h2 class="sec-title">許可・体制</h2>
+      <p class="sec-lead">必要な許可を取得したうえで作業しています。</p>
+    </div>
+    <dl class="lic">
+      <div class="lic-row"><dt>建設業許可</dt><dd>愛知県知事（般-2）第71403号</dd></div>
+      <div class="lic-row"><dt>産業廃棄物収集運搬</dt><dd><ul><li>愛知県　第02300209141号</li><li>岐阜県　第02100209141号</li><li>静岡県　第02201209141号</li></ul></dd></div>
+      <div class="lic-row"><dt>古物商許可</dt><dd>愛知県公安委員会　第543861402600号</dd></div>
+      <div class="lic-row"><dt>遺品整理士認定協会</dt><dd>第IS05743号</dd></div>
+    </dl>
+    <p class="lic-msg">運営：GRAM（ココクリーン）</p>
+  </div>
+</section>
+
+<!-- ============ ⑨ 管理会社・大家さまへ（B2B導線） ============ -->
+<section class="b2b" id="business">
+  <div class="wrap b2b-grid">
+    <div>
+      <span class="sec-no">FOR BUSINESS</span><br>
+      <span class="b2b-tag">管理会社さま・オーナーさまへ</span>
+      <h2>賃貸物件でお困りの<br>管理会社さま・オーナーさまへ</h2>
+      <p>入居者の孤独死、残置物の処分、原状回復。<br>清掃から原状回復、必要に応じて建物の解体、物件そのものの買取まで、一社で対応できます。</p>
+      <p>継続的なお取引もご相談ください。</p>
+      <a href="#contact" class="btn-corp js-corp">
+        法人のお問い合わせはこちら
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4l6 6-6 6"/></svg>
+      </a>
+      <p class="b2b-tel">お急ぎの場合はお電話で：<a href="tel:0565000000" class="js-tel" data-cv-place="business">0565-○○-○○○○</a>（24時間受付）</p>
+    </div>
+    <ul class="b2b-list">
+      <li><b>01</b><span>窓口ひとつで、清掃・残置物撤去・原状回復まで完結</span></li>
+      <li><b>02</b><span>入居者募集の再開に向けた床材・壁材の交換、リフォーム</span></li>
+      <li><b>03</b><span>建物の解体、事故物件の買取までご相談可能</span></li>
+      <li><b>04</b><span>費用負担について、契約や保険の内容を踏まえて調整</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ ⑩ よくあるご質問 ============ -->
+<section class="bg-white" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">FAQ</span>
+      <h2 class="sec-title">よくあるご質問</h2>
+    </div>
+    <div class="faq">
+      <details><summary>遠方に住んでいて立ち会えません</summary><div class="a">立ち会いなしでも対応可能です。写真で報告いたします。</div></details>
+      <details><summary>まだ警察の手続きが終わっていません</summary><div class="a">手続き中でもご相談いただけます。段取りをご説明します。</div></details>
+      <details><summary>においだけでも見てもらえますか</summary><div class="a">はい。現地確認は無料です。</div></details>
+      <details><summary>賃貸ですが、費用は誰が払うのですか</summary><div class="a">契約や保険の内容によります。管理会社さまと調整の上でご説明します。</div></details>
+      <details><summary>どこまでお願いできますか</summary><div class="a">清掃、家財の処分、原状回復、建物の解体、土地・建物の買取まで対応しています。</div></details>
+      <details><summary>近所に知られたくありません</summary><div class="a">出入りを最小限にする形で対応します。ご相談ください。</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ⑪ お問い合わせ ============ -->
+<section class="bg-pale" id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">CONTACT</span>
+      <h2 class="sec-title">お問い合わせ</h2>
+      <p class="sec-lead">お急ぎの方は、お電話がいちばん早く対応できます。</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-tel">
+        <h3>お電話でのご相談</h3>
+        <p>24時間受付｜状況を伺うだけでも構いません</p>
+        <a href="tel:0565000000" class="btn-tel lg js-tel" data-cv-place="contact">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg>
+          <span><span class="t-lead">24時間受付｜無料でご相談ください</span><span class="t-num">0565-○○-○○○○</span></span>
+        </a>
+        <ul>
+          <li>お電話は10〜15分程度です</li>
+          <li>現地確認は最短で翌日・無料</li>
+          <li>その場で決めていただく必要はありません</li>
+        </ul>
+      </div>
+
+      <div class="form-card">
+        <!-- 送信先は未接続（納品時に接続し、テスト送信で着信を確認すること） -->
+        <form id="contactForm" novalidate>
+          <h3>フォームでのご相談</h3>
+          <p class="sub">4項目だけのご入力です。折り返しご連絡します。</p>
+          <p class="corp-flag" id="corpFlag">法人（管理会社・オーナー）としてのお問い合わせ</p>
+          <input type="hidden" name="type" id="inqType" value="個人">
+          <div class="field">
+            <label for="f-name">お名前 <span class="req">必須</span></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="例）山田 花子" required>
+            <p class="err">お名前をご入力ください</p>
+          </div>
+          <div class="field">
+            <label for="f-tel">電話番号 <span class="req">必須</span></label>
+            <input id="f-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="例）090-1234-5678" required>
+            <p class="err">電話番号をご入力ください</p>
+          </div>
+          <div class="field">
+            <label for="f-area">物件の所在地（市区町村まで） <span class="req">必須</span></label>
+            <input id="f-area" name="area" type="text" placeholder="例）愛知県豊田市" required>
+            <p class="err">市区町村までご入力ください</p>
+          </div>
+          <div class="field">
+            <label for="f-msg">状況（自由記入）</label>
+            <textarea id="f-msg" name="message" placeholder="分かる範囲で構いません"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">この内容で相談する</button>
+          <p class="form-note">入力内容はご相談への対応のみに使用します。</p>
+        </form>
+
+        <!-- 送信完了画面 -->
+        <div class="thanks" id="thanks" role="status" aria-live="polite" tabindex="-1">
+          <div class="thanks-ico"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#2e6b66" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 17l6 6 11-13"/></svg></div>
+          <h3>送信が完了しました</h3>
+          <p>お問い合わせいただき、ありがとうございます。担当者より、ご入力の電話番号へ折り返しご連絡いたします。<br>お急ぎの場合は、お電話でもご相談いただけます。</p>
+          <a href="tel:0565000000" class="btn-tel lg js-tel" data-cv-place="thanks">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg>
+            <span><span class="t-lead">24時間受付</span><span class="t-num">0565-○○-○○○○</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="logo" aria-label="ココクリーン トップへ">
+          <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#2e6b66"/><path d="M11 22c3-7 6-10 9-10s6 3 9 10" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><path d="M14 27h12" stroke="#d8c393" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <span class="logo-text"><b>ココクリーン</b><small>特殊清掃・原状回復</small></span>
+        </a>
+        <p style="margin-top:12px">運営：GRAM　｜　24時間受付 0565-○○-○○○○</p>
+      </div>
+      <nav class="footer-links" aria-label="フッターナビゲーション">
+        <a href="#service">対応できること</a>
+        <a href="#flow">ご依頼の流れ</a>
+        <a href="#price">費用について</a>
+        <a href="#business">法人のお客さま</a>
+        <a href="#faq">よくあるご質問</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+    <p class="copy">&copy; ココクリーン / GRAM</p>
+  </div>
+</footer>
+
+<!-- ============ スマホ追従ボタン ============ -->
+<div class="sticky-cta">
+  <a href="tel:0565000000" class="btn-tel js-tel" data-cv-place="sticky">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg>
+    <span><span class="t-lead">24時間受付｜無料相談</span><span class="t-num">0565-○○-○○○○</span></span>
+  </a>
+  <a href="#contact" class="sticky-form">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+    フォーム
+  </a>
+</div>
+
+<script>
+(function(){
+  /* ===== 計測設定 =====
+     Google広告のコンバージョン送信先（'AW-XXXXXXXXX/xxxxxxxx' 形式）を設定する。
+     空のままでも GA4 用のイベント（tel_tap / form_submit）は送信される。 */
+  var CONVERSION = {
+    tel:  '',   // 電話タップ（最重要）
+    form: ''    // フォーム送信
+  };
+
+  function track(eventName, params, sendTo){
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({event:eventName}, params || {}));
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, params || {});
+      if (sendTo) window.gtag('event', 'conversion', {send_to: sendTo});
+    }
+  }
+
+  // 電話タップ計測
+  document.querySelectorAll('.js-tel').forEach(function(a){
+    a.addEventListener('click', function(){
+      track('tel_tap', {place: a.getAttribute('data-cv-place') || ''}, CONVERSION.tel);
+    });
+  });
+
+  // 法人お問い合わせ導線：フォームに法人フラグを立てる
+  var inqType = document.getElementById('inqType');
+  var corpFlag = document.getElementById('corpFlag');
+  document.querySelectorAll('.js-corp').forEach(function(a){
+    a.addEventListener('click', function(){
+      inqType.value = '法人';
+      corpFlag.classList.add('on');
+      setTimeout(function(){ document.getElementById('f-name').focus({preventScroll:true}); }, 600);
+    });
+  });
+
+  // フォーム
+  var form = document.getElementById('contactForm');
+  var thanks = document.getElementById('thanks');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var ok = true;
+    form.querySelectorAll('[required]').forEach(function(el){
+      var f = el.closest('.field');
+      var bad = !el.value.trim();
+      f.classList.toggle('invalid', bad);
+      if (bad && ok) { el.focus(); ok = false; }
+    });
+    if (!ok) return;
+
+    var btn = form.querySelector('.btn-submit');
+    btn.disabled = true;
+
+    /* 送信処理：納品時に送信先を接続する（例：自社メールフォームの action、Formspree 等）
+       fetch(ENDPOINT, {method:'POST', body:new FormData(form)}).then(done) */
+    setTimeout(done, 500);
+
+    function done(){
+      track('form_submit', {inquiry_type: inqType.value}, CONVERSION.form);
+      form.style.display = 'none';
+      thanks.classList.add('on');
+      thanks.focus();
+      thanks.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  });
+  form.querySelectorAll('[required]').forEach(function(el){
+    el.addEventListener('input', function(){ el.closest('.field').classList.remove('invalid'); });
+  });
+})();
+</script>
+</body>
+</html>
